@@ -1,108 +1,104 @@
 // app/verify-otp/page.jsx
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
-import Link from 'next/link';
+import { useState, useRef } from 'react';
 
 export default function VerifyOtp() {
   const [otp, setOtp] = useState(['', '', '', '', '', '']);
   const [isLoading, setIsLoading] = useState(false);
-  const [countdown, setCountdown] = useState(30);
-  const [errors, setErrors] = useState({});
+  const [error, setError] = useState('');
   const inputRefs = useRef([]);
 
-  useEffect(() => {
-    if (countdown > 0) {
-      const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [countdown]);
-
   const handleChange = (index, value) => {
-    if (!/^\d*$/.test(value)) return; // Only allow numbers
+    if (!/^\d*$/.test(value)) return;
     
     const newOtp = [...otp];
     newOtp[index] = value;
     setOtp(newOtp);
+    setError('');
     
-    // Auto focus to next input
     if (value && index < 5) {
       inputRefs.current[index + 1].focus();
     }
   };
 
   const handleKeyDown = (index, e) => {
-    if (e.key === 'Backspace' && !otp[index] && index > 0) {
-      // Move to previous input on backspace
+    if (e.key === 'Backspace') {
+      if (!otp[index] && index > 0) {
+        inputRefs.current[index - 1].focus();
+      }
+      
+      const newOtp = [...otp];
+      newOtp[index] = '';
+      setOtp(newOtp);
+    } else if (e.key === 'ArrowLeft' && index > 0) {
       inputRefs.current[index - 1].focus();
+    } else if (e.key === 'ArrowRight' && index < 5) {
+      inputRefs.current[index + 1].focus();
     }
   };
 
   const handlePaste = (e) => {
     e.preventDefault();
-    const pastedData = e.clipboardData.getData('text');
+    const pastedData = e.clipboardData.getData('text/plain').trim();
+    
     if (/^\d{6}$/.test(pastedData)) {
       const newOtp = pastedData.split('').slice(0, 6);
       setOtp(newOtp);
-      inputRefs.current[5].focus();
-    }
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
     
-    if (otp.join('').length !== 6) {
-      newErrors.otp = 'Please enter the 6-digit code';
+      setTimeout(() => {
+        if (inputRefs.current[5]) {
+          inputRefs.current[5].focus();
+        }
+      }, 0);
     }
-    
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      setIsLoading(true);
-      // Simulate API call
-      try {
-        console.log('OTP submitted:', otp.join(''));
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        // Handle successful verification
-      } catch (error) {
-        setErrors({ submit: error.message });
-      } finally {
-        setIsLoading(false);
-      }
+    
+    if (otp.join('').length !== 6) {
+      setError('Please enter the 6-digit code');
+      return;
+    }
+    
+    setIsLoading(true);
+    try {
+      const myOtp = otp.join('')
+      console.log('OTP submitted:', myOtp);
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Handle successful verification
+    } catch (err) {
+      setError('Verification failed. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const resendCode = () => {
-    setCountdown(30);
-    // Add resend logic here
-    console.log('Resending code...');
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br dark:from-gray-900 dark:to-black flex items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden transition-all duration-300">
-        <div className="py-6 px-8 bg-orange-500 text-white text-center">
-          <h1 className="text-3xl font-bold">Verify Your Account</h1>
-          <p className="mt-2">Enter the 6-digit code sent to your email</p>
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-white dark:from-gray-900 dark:to-black flex items-center justify-center p-4">
+      <div className="max-w-md w-full bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
+        <div className="py-6 px-4 sm:px-8 bg-orange-500 text-white text-center">
+          <h1 className="text-2xl sm:text-3xl font-bold">Verify Your Account</h1>
+          <p className="mt-2 text-sm sm:text-base">Enter the 6-digit code sent to your email</p>
         </div>
         
-        <div className="p-8">
-          {errors.submit && (
+        <div className="p-6 sm:p-8">
+          {error && (
             <div className="mb-6 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg text-sm">
-              {errors.submit}
+              {error}
             </div>
           )}
           
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="otp" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3 text-center">
+            <div className="flex flex-col items-center">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-4 text-center">
                 Verification Code
               </label>
-              <div className="flex justify-center space-x-2">
+              <div 
+                className="flex justify-center space-x-2 sm:space-x-3"
+                onPaste={handlePaste}
+              >
                 {otp.map((digit, index) => (
                   <input
                     key={index}
@@ -113,14 +109,11 @@ export default function VerifyOtp() {
                     value={digit}
                     onChange={(e) => handleChange(index, e.target.value)}
                     onKeyDown={(e) => handleKeyDown(index, e)}
-                    onPaste={index === 0 ? handlePaste : undefined}
-                    className={`w-12 h-12 text-center text-xl font-semibold border ${
-                      errors.otp ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
-                    } rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 dark:bg-gray-700 dark:text-white transition duration-300`}
+                    onFocus={(e) => e.target.select()}
+                    className="w-10 h-10 sm:w-12 sm:h-12 text-center text-xl font-semibold border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 dark:bg-gray-700 dark:text-white transition duration-200"
                   />
                 ))}
               </div>
-              {errors.otp && <p className="mt-2 text-xs text-red-500 text-center">{errors.otp}</p>}
             </div>
             
             <button
@@ -141,42 +134,6 @@ export default function VerifyOtp() {
               )}
             </button>
           </form>
-          
-          <div className="mt-6 text-center">
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Didn't receive the code?
-              {countdown > 0 ? (
-                <span className="text-gray-500 dark:text-gray-500 ml-1">
-                  Resend in {countdown}s
-                </span>
-              ) : (
-                <button
-                  onClick={resendCode}
-                  className="font-medium text-orange-600 hover:text-orange-500 dark:text-orange-400 dark:hover:text-orange-300 ml-1 focus:outline-none"
-                >
-                  Resend code
-                </button>
-              )}
-            </p>
-          </div>
-          
-          <div className="relative my-6">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-300 dark:border-gray-600"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">Having trouble?</span>
-            </div>
-          </div>
-          
-          <div className="text-center">
-            <Link 
-              href="/support" 
-              className="text-sm font-medium text-orange-600 hover:text-orange-500 dark:text-orange-400 dark:hover:text-orange-300"
-            >
-              Contact Support
-            </Link>
-          </div>
         </div>
       </div>
     </div>

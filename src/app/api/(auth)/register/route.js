@@ -9,8 +9,8 @@ export async function POST(req) {
     await dbConnect();
 
     const body = await req.json();
-    const { name, email, password, phone } = body;
-    if (!name || !email || !password || !phone) {
+    const { name, email, password } = body;
+    if (!name || !email || !password) {
       return new Response(
         JSON.stringify({ error: "All fields are required." }),
         { status: 400 }
@@ -33,7 +33,6 @@ export async function POST(req) {
       email: email.toLowerCase(),
       password: hashedPassword,
       name,
-      phone,
       OTP: verificationToken,
       expire: verificationExpires,
     });
@@ -55,13 +54,13 @@ export async function POST(req) {
 
 // find all of the users for testing
 
-export async function GET() {
-  try {
-    await dbConnect();
-    const users = await User.find();
-    return NextResponse.json(users);
-  } catch (err) {
-    console.log(err);
-    return new Error({ error: err }, { status: 404 });
-  }
-}
+// export async function GET() {
+//   try {
+//     await dbConnect();
+//     const users = await User.find();
+//     return NextResponse.json(users);
+//   } catch (err) {
+//     console.log(err);
+//     return new Error({ error: err }, { status: 404 });
+//   }
+// }
