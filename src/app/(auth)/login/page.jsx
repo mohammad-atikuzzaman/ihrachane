@@ -44,10 +44,8 @@ export default function Login() {
     e.preventDefault();
     if (validateForm()) {
       setIsLoading(true);
-      // Simulate API call
       try {
-        // Add your login logic here
-        console.log('Form submitted:', formData);
+        // console.log('Form submitted:', formData);
         await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate network delay
         // Redirect or handle successful login
       } catch (error) {
