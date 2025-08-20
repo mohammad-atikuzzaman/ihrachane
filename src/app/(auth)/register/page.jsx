@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 
 export default function Register() {
@@ -16,6 +17,7 @@ export default function Register() {
     agreeToTerms: false,
   });
 
+  const router = useRouter()
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -76,6 +78,7 @@ export default function Register() {
         const res = await axios.post("/api/register", data);
         if(res.status === 201){
           toast.success("Registration Successful")
+          router.push("/otp-verification")
         }
       } catch (error) {
         toast(error.message)

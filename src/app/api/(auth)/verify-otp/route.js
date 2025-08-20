@@ -9,6 +9,8 @@ export async function POST(req) {
     const body = await req.json();
     const { email, otp } = body;
 
+    console.log(email, otp);
+
     // Validate input
     if (!email || !otp) {
       return NextResponse.json(
@@ -19,6 +21,7 @@ export async function POST(req) {
 
     // Find user by email
     const user = await User.findOne({ email: email.toLowerCase() });
+    console.log(user);
     
     if (!user) {
       return NextResponse.json(

@@ -2,7 +2,9 @@
 "use client";
 
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
+import toast from "react-hot-toast";
 
 export default function VerifyOtp() {
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
@@ -10,6 +12,7 @@ export default function VerifyOtp() {
   const [error, setError] = useState("");
   const inputRefs = useRef([]);
   const [email, setEmail] = useState("");
+  const router = useRouter()
 
   useEffect(() => {
     setEmail(localStorage.getItem("email"));
@@ -70,14 +73,15 @@ export default function VerifyOtp() {
 
     setIsLoading(true);
     try {
-      const data = {otp: otp.join(''), email}
+      const data = { otp: otp.join(""), email };
 
-      const res = await axios.post("/api/verify-otp", data)
-      console.log(res);
+      const res = await axios.post("/api/verify-otp", data);
+      if (res.statusText === "OK") {
+        toast.success("Otp verification Successful");
+        router.push("/login")
+      }
 
-      localStorage.removeItem("email")
-      // await new Promise((resolve) => setTimeout(resolve, 1500));
-      // Handle successful verification
+      localStorage.removeItem("email");
     } catch (err) {
       setError("Verification failed. Please try again.");
     } finally {
