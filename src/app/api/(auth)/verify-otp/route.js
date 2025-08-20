@@ -9,9 +9,6 @@ export async function POST(req) {
     const body = await req.json();
     const { email, otp } = body;
 
-    console.log(email, otp);
-
-    // Validate input
     if (!email || !otp) {
       return NextResponse.json(
         { error: "Email and OTP are required." },
@@ -19,9 +16,7 @@ export async function POST(req) {
       );
     }
 
-    // Find user by email
     const user = await User.findOne({ email: email.toLowerCase() });
-    console.log(user);
     
     if (!user) {
       return NextResponse.json(
@@ -30,7 +25,6 @@ export async function POST(req) {
       );
     }
 
-    // Check if user is already verified
     if (user.verified) {
       return NextResponse.json(
         { error: "Email is already verified." },
@@ -38,7 +32,6 @@ export async function POST(req) {
       );
     }
 
-    // Check if OTP exists
     if (!user.OTP) {
       return NextResponse.json(
         { error: "No OTP found. Please request a new one." },
@@ -46,7 +39,6 @@ export async function POST(req) {
       );
     }
 
-    // Check if OTP is expired
     const currentTime = new Date();
     const expiryTime = new Date(user.expire);
     
