@@ -66,6 +66,7 @@ export default function Register() {
     e.preventDefault();
     if (validateForm()) {
       setIsLoading(true);
+      localStorage.setItem("email", formData?.email);
       try {
         const data = {
           name: `${formData?.firstName} ${formData?.lastName}`,

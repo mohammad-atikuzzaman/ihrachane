@@ -1,51 +1,57 @@
 // app/verify-otp/page.jsx
-'use client';
+"use client";
 
-import { useState, useRef } from 'react';
+import axios from "axios";
+import { useState, useRef, useEffect } from "react";
 
 export default function VerifyOtp() {
-  const [otp, setOtp] = useState(['', '', '', '', '', '']);
+  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const inputRefs = useRef([]);
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    setEmail(localStorage.getItem("email"));
+  }, []);
 
   const handleChange = (index, value) => {
     if (!/^\d*$/.test(value)) return;
-    
+
     const newOtp = [...otp];
     newOtp[index] = value;
     setOtp(newOtp);
-    setError('');
-    
+    setError("");
+
     if (value && index < 5) {
       inputRefs.current[index + 1].focus();
     }
   };
 
   const handleKeyDown = (index, e) => {
-    if (e.key === 'Backspace') {
+    if (e.key === "Backspace") {
       if (!otp[index] && index > 0) {
         inputRefs.current[index - 1].focus();
       }
-      
+
       const newOtp = [...otp];
-      newOtp[index] = '';
+      newOtp[index] = "";
       setOtp(newOtp);
-    } else if (e.key === 'ArrowLeft' && index > 0) {
+    } else if (e.key === "ArrowLeft" && index > 0) {
       inputRefs.current[index - 1].focus();
-    } else if (e.key === 'ArrowRight' && index < 5) {
+    } else if (e.key === "ArrowRight" && index < 5) {
       inputRefs.current[index + 1].focus();
     }
   };
 
   const handlePaste = (e) => {
     e.preventDefault();
-    const pastedData = e.clipboardData.getData('text/plain').trim();
-    
+    const pastedData = e.clipboardData.getData("text/plain").trim();
+
     if (/^\d{6}$/.test(pastedData)) {
-      const newOtp = pastedData.split('').slice(0, 6);
+      const newOtp = pastedData.split("").slice(0, 6);
       setOtp(newOtp);
-    
+
       setTimeout(() => {
         if (inputRefs.current[5]) {
           inputRefs.current[5].focus();
@@ -56,20 +62,24 @@ export default function VerifyOtp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (otp.join('').length !== 6) {
-      setError('Please enter the 6-digit code');
+
+    if (otp.join("").length !== 6) {
+      setError("Please enter the 6-digit code");
       return;
     }
-    
+
     setIsLoading(true);
     try {
-      const myOtp = otp.join('')
-      console.log('OTP submitted:', myOtp);
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const data = {otp: otp.join(''), email}
+
+      const res = await axios.post("/api/verify-otp", data)
+      console.log(res);
+
+      localStorage.removeItem("email")
+      // await new Promise((resolve) => setTimeout(resolve, 1500));
       // Handle successful verification
     } catch (err) {
-      setError('Verification failed. Please try again.');
+      setError("Verification failed. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -79,23 +89,27 @@ export default function VerifyOtp() {
     <div className="min-h-screen bg-gradient-to-br from-gray-100 to-white dark:from-gray-900 dark:to-black flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
         <div className="py-6 px-4 sm:px-8 bg-orange-500 text-white text-center">
-          <h1 className="text-2xl sm:text-3xl font-bold">Verify Your Account</h1>
-          <p className="mt-2 text-sm sm:text-base">Enter the 6-digit code sent to your email</p>
+          <h1 className="text-2xl sm:text-3xl font-bold">
+            Verify Your Account
+          </h1>
+          <p className="mt-2 text-sm sm:text-base">
+            Enter the 6-digit code sent to your email
+          </p>
         </div>
-        
+
         <div className="p-6 sm:p-8">
           {error && (
             <div className="mb-6 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg text-sm">
               {error}
             </div>
           )}
-          
+
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="flex flex-col items-center">
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-4 text-center">
                 Verification Code
               </label>
-              <div 
+              <div
                 className="flex justify-center space-x-2 sm:space-x-3"
                 onPaste={handlePaste}
               >
@@ -115,7 +129,7 @@ export default function VerifyOtp() {
                 ))}
               </div>
             </div>
-            
+
             <button
               type="submit"
               disabled={isLoading}
@@ -123,14 +137,30 @@ export default function VerifyOtp() {
             >
               {isLoading ? (
                 <>
-                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  <svg
+                    className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
                   </svg>
                   Verifying...
                 </>
               ) : (
-                'Verify Account'
+                "Verify Account"
               )}
             </button>
           </form>

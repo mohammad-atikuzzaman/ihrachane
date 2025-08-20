@@ -54,13 +54,13 @@ export async function POST(req) {
 
 // find all of the users for testing
 
-// export async function GET() {
-//   try {
-//     await dbConnect();
-//     const users = await User.find();
-//     return NextResponse.json(users);
-//   } catch (err) {
-//     console.log(err);
-//     return new Error({ error: err }, { status: 404 });
-//   }
-// }
+export async function GET() {
+  try {
+    await dbConnect();
+    const users = await User.find();
+    return NextResponse.json(users);
+  } catch (err) {
+    console.log(err);
+    return new Error({ error: err }, { status: 404 });
+  }
+}
