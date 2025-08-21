@@ -6,10 +6,8 @@ import React from "react";
 const page = async () => {
   const session = await getServerSession(authOptions);
 
-  if (!session) {
-    return redirect("/login");
-  }
-  if (session?.role !== "admin") return redirect("/unauthorized");
+  if (!session) return redirect("/login");
+  if (session?.user?.role !== "admin") return redirect("/unauthorized");
 
   return (
     <div>
