@@ -1,22 +1,16 @@
 import LogOutBtn from "@/components/shared/LogOutBtn";
 import { authOptions } from "@/lib/authOptions";
 import { getServerSession } from "next-auth";
+// import { redirect } from "next/navigation";
 
 export default async function ProfilePage() {
   const session = await getServerSession(authOptions);
 
-  if (!session) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-red-500 text-lg">
-          You must be logged in to view this page.
-        </p>
-      </div>
-    );
-  }
+  // if (!session) {
+  //   return redirect("/login");
+  // }
 
   const { user } = session;
-  console.log(user);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 p-6">
@@ -38,7 +32,7 @@ export default async function ProfilePage() {
             <strong>ID:</strong> {user.id}
           </p>
         </div>
-        <LogOutBtn/>
+        <LogOutBtn />
       </div>
     </div>
   );
