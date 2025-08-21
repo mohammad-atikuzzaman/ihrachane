@@ -127,7 +127,7 @@ export async function GET() {
     const users = await User.find();
     return NextResponse.json(users);
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     return new Error({ error: err }, { status: 404 });
   }
 }
