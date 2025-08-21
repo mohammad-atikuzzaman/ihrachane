@@ -1,14 +1,14 @@
 import LogOutBtn from "@/components/shared/LogOutBtn";
 import { authOptions } from "@/lib/authOptions";
 import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 
 export default async function ProfilePage() {
   const session = await getServerSession(authOptions);
 
-  if (!session) {
-    return redirect("/login");
-  }
+  // if (!session) {
+  //   return redirect("/login");
+  // }
 
   const { user } = session;
 
