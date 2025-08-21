@@ -17,6 +17,7 @@ export default function RootLayout({ children }) {
         <nav className="space-x-6 flex flex-col min-h-screen bg-amber-600 text-white ">
           <Link href="/dashboard">Dashboard</Link>
           <Link href="/profile">Profile</Link>
+          <Link href="/">Home</Link>
         </nav>
         <Toaster/>
         {children}
