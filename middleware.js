@@ -1,23 +1,11 @@
-import { getToken } from "next-auth/jwt";
-import { NextResponse } from "next/server";
-
-export async function middleware(req) {
-  const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
-  const url = req.nextUrl;
-
-  const isAdminRoute = url.pathname.startsWith("/dashboard");
-
-  if (!token) {
-    return NextResponse.redirect(new URL("/login", req.url));
+import { NextResponse } from 'next/server'
+ 
+export function middleware(request) {
+  if (request.nextUrl.pathname.startsWith('/about')) {
+    return NextResponse.rewrite(new URL('/', request.url))
   }
-
-  if (isAdminRoute && token.role !== "admin") {
-    return NextResponse.redirect(new URL("/unauthorized", req.url));
+ 
+  if (request.nextUrl.pathname.startsWith('/dashboard')) {
+    return NextResponse.rewrite(new URL('/profile', request.url))
   }
-
-  return NextResponse.next();
 }
-
-export const config = {
-  matcher: ["/dashboard/:path*"],
-};
