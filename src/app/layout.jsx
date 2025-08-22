@@ -1,5 +1,5 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "@/app/globals.css";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import AppProvider from "@/providers/AppProvider";
 
