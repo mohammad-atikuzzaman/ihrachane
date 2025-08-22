@@ -3,7 +3,7 @@
 // import { redirect } from "next/navigation";
 import React from "react";
 
-const page = async () => {
+const DashboardPage = async () => {
   // const session = await getServerSession(authOptions);
 
   // if (!session) return redirect("/login");
@@ -11,9 +11,9 @@ const page = async () => {
 
   return (
     <div>
-      <h2>this is dashboard page</h2>
+      <h2>This is DashboardPage</h2>
     </div>
   );
 };
 
-export default page;
+export default DashboardPage;
