@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { menus } from "../../../utils/publicMenu";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -56,30 +57,14 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link
-              href="/"
-              className="text-gray-700 dark:text-gray-100 hover:text-orange-500 dark:hover:text-orange-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="text-gray-700 dark:text-gray-100 hover:text-orange-500 dark:hover:text-orange-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-            >
-              About
-            </Link>
-            <Link
-              href="/sourcing"
-              className="text-gray-700 dark:text-gray-100 hover:text-orange-500 dark:hover:text-orange-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-            >
-              Sourcing
-            </Link>
-            <Link
-              href="/dashboard"
-              className="text-gray-700 dark:text-gray-100 hover:text-orange-500 dark:hover:text-orange-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-            >
-              Dashboard
-            </Link>
+            {menus?.map((menu, index) => (
+              <Link
+                href={menu.url}
+                className="text-gray-700 dark:text-gray-100 hover:text-orange-500 dark:hover:text-orange-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+              >
+                {menu.path}
+              </Link>
+            ))}
 
             {/* Contact Button */}
             <Link
@@ -187,34 +172,15 @@ export default function Navbar() {
 
                 {/* Menu Items */}
                 <div className="flex flex-col items-center space-y-7 py-4">
-                  <Link
-                    href="/"
-                    className="text-2xl font-medium text-gray-800 dark:text-gray-200 hover:text-orange-500 dark:hover:text-orange-400 transition-colors duration-200 py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Home
-                  </Link>
-                  <Link
-                    href="/about"
-                    className="text-2xl font-medium text-gray-800 dark:text-gray-200 hover:text-orange-500 dark:hover:text-orange-400 transition-colors duration-200 py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    About
-                  </Link>
-                  <Link
-                    href="/sourcing"
-                    className="text-2xl font-medium text-gray-800 dark:text-gray-200 hover:text-orange-500 dark:hover:text-orange-400 transition-colors duration-200 py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Sourcing
-                  </Link>
-                  <Link
-                    href="/dashboard"
-                    className="text-2xl font-medium text-gray-800 dark:text-gray-200 hover:text-orange-500 dark:hover:text-orange-400 transition-colors duration-200 py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Dashboard
-                  </Link>
+                  {menus?.map((menu, index) => (
+                    <Link
+                      href={menu.url}
+                      className="text-2xl font-medium text-gray-800 dark:text-gray-200 hover:text-orange-500 dark:hover:text-orange-400 transition-colors duration-200 py-2"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {menu.path}
+                    </Link>
+                  ))}
 
                   {/* Contact Button */}
                   <Link
