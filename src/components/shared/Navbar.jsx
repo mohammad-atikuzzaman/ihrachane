@@ -59,6 +59,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-6">
             {menus?.map((menu, index) => (
               <Link
+                key={index}
                 href={menu.url}
                 className="text-gray-700 dark:text-gray-100 hover:text-orange-500 dark:hover:text-orange-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
               >
@@ -174,6 +175,7 @@ export default function Navbar() {
                 <div className="flex flex-col items-center space-y-7 py-4">
                   {menus?.map((menu, index) => (
                     <Link
+                      key={index}
                       href={menu.url}
                       className="text-2xl font-medium text-gray-800 dark:text-gray-200 hover:text-orange-500 dark:hover:text-orange-400 transition-colors duration-200 py-2"
                       onClick={() => setIsMenuOpen(false)}
