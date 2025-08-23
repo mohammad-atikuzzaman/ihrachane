@@ -1,4 +1,3 @@
-// components/CreateSubCategoryForm.jsx
 "use client";
 
 import { useState } from "react";

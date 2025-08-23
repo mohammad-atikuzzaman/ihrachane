@@ -1,4 +1,4 @@
-import UpdateCompanyForm from "@/components/dashboard/AboutCompany/UpdateCompanyForm";
+import UpdateCompanyForm from "@/components/dashboard/about-company/UpdateCompanyForm";
 
 const CompanyDetailsPage = () => {
     return (

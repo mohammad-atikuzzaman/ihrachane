@@ -1,4 +1,3 @@
-// components/UpdateCompanyForm.jsx
 'use client'
 
 import { useState } from 'react'
