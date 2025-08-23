@@ -1,4 +1,3 @@
-// components/CreateCategoryForm.jsx
 'use client'
 
 import { useRouter } from 'next/navigation'
@@ -9,6 +8,7 @@ const CreateCategoryForm = () => {
   const [formData, setFormData] = useState({
     categoryName: '',
     bannerImage: null,
+    contentSlideImage: null,
     contentTitle: '',
     mainBannerSpan: '',
     mainBannerHeader: '',
@@ -59,7 +59,8 @@ const CreateCategoryForm = () => {
             placeholder="Enter Category Name"
           />
         </div>
-        
+        <div className='flex gap-6 justify-between flex-wrap'>
+
         {/* Banner Image Upload */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -80,6 +81,29 @@ const CreateCategoryForm = () => {
               {formData.bannerImage ? formData.bannerImage.name : 'No file chosen'}
             </span>
           </div>
+        </div>
+        
+        {/* Content Side Image Upload */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            UPLOAD Content Side IMAGE (IMAGE DIMENSION: 1080×720)
+          </label>
+          <div className="mt-1 flex items-center">
+            <label className="relative cursor-pointer bg-white rounded-md font-medium text-orange-600 hover:text-orange-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-orange-500">
+              <span className="px-4 py-2 border border-gray-300 rounded-md">Choose File</span>
+              <input
+                type="file"
+                name="contentSlide"
+                onChange={handleChange}
+                className="sr-only"
+                accept="image/*"
+              />
+            </label>
+            <span className="ml-3 text-sm text-gray-500">
+              {formData.bannerImage ? formData.bannerImage.name : 'No file chosen'}
+            </span>
+          </div>
+        </div>
         </div>
         
         {/* Content Title */}
