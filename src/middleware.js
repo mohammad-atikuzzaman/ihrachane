@@ -9,7 +9,7 @@ export async function middleware(request) {
     secret: process.env.NEXTAUTH_SECRET,
   });
 
-  console.log(token, "token");
+  // console.log(token, "token");
 
   // Protected routes
   const protectedRoutes = ["/dashboard", "/profile", "/settings"];
