@@ -1,4 +1,4 @@
-import CreateClientForm from "@/components/dashboard/client/CreateNewClientForm";
+import CreateClientForm from "@/components/dashboard/client/CreateClientForm";
 
 const CreateNewClientPage = () => {
   return (
