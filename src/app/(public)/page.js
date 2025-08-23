@@ -1,9 +1,4 @@
-export default async function Home() {
-  await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("file resolved");
-    }, 2000);
-  });
+export default function Home() {
   return (
     <div className="">
       <h2 className="text-5xl font-bold">Hello Akash</h2>
