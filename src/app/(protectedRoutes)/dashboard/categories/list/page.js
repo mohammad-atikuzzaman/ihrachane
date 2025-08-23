@@ -1,5 +1,4 @@
 "use client";
-import AddCategoryForm from "@/components/dashboard/categories/AddCategoryForm";
 import CategoriesDataTable from "@/components/dashboard/categories/CategoriesDataTable";
 import { useRouter } from "next/navigation";
 
@@ -16,10 +15,6 @@ const CategoryListPage = () => {
           </button>
         </div>
         <CategoriesDataTable />
-      </div>
-      <div className='bg-white rounded-lg shadow p-6'>
-        <h2 className='text-lg font-semibold mb-4'>Add Stab Category</h2>
-        <AddCategoryForm />
       </div>
     </div>
   );
