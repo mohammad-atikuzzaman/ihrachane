@@ -1,9 +1,11 @@
+import ContactTable from "@/components/dashboard/contact/ContactTable";
+
 const ContactFormPage = () => {
-    return (
-        <div>
-            This is ContactForm page
-        </div>
-    );
+  return (
+    <div>
+      <ContactTable />
+    </div>
+  );
 };
 
 export default ContactFormPage;
