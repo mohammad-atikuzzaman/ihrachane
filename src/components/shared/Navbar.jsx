@@ -39,7 +39,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white dark:bg-gray-900 shadow-md py-2"
+          ? "bg-white shadow-md py-2"
           : "bg-transparent py-4"
       }`}>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -47,7 +47,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href='/' className='flex items-center'>
             <Image
-              src='./logo/siteLogo/logo.svg'
+              src='/logo/siteLogo/logo.svg'
               alt='IHRCHANE'
               height={40}
               width={160}
@@ -60,7 +60,7 @@ export default function Navbar() {
               <Link
                 key={index}
                 href={menu.url}
-                className='text-gray-700 dark:text-gray-100 hover:text-orange-500 dark:hover:text-orange-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200'>
+                className='text-gray-700 hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200'>
                 {menu.path}
               </Link>
             ))}
@@ -68,7 +68,7 @@ export default function Navbar() {
             {/* Contact Button */}
             <Link
               href='/contact'
-              className='bg-orange-500 dark:bg-orange-600 hover:bg-orange-600 dark:hover:bg-orange-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 shadow-sm'>
+              className='bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 shadow-sm'>
               Contact Us
             </Link>
           </div>
@@ -77,7 +77,7 @@ export default function Navbar() {
           <div className='md:hidden'>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className='inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500 dark:focus:ring-orange-400'
+              className='inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-orange-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500'
               aria-expanded='false'>
               <span className='sr-only'>Open main menu</span>
               {!isMenuOpen ? (
@@ -127,14 +127,14 @@ export default function Navbar() {
             <div
               className='fixed inset-0 flex items-center justify-center'
               onClick={(e) => e.stopPropagation()}>
-              <div className='bg-white/95 dark:bg-gray-900/95 w-11/12 max-w-md rounded-2xl shadow-2xl p-6 relative'>
+              <div className='bg-white/95 w-11/12 max-w-md rounded-2xl shadow-2xl p-6 relative'>
                 {/* Close button */}
                 <div className='flex justify-end mb-2'>
                   <button
                     onClick={() => setIsMenuOpen(false)}
-                    className='p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors'>
+                    className='p-2 rounded-full hover:bg-gray-100 transition-colors'>
                     <svg
-                      className='h-6 w-6 text-gray-500 dark:text-gray-400'
+                      className='h-6 w-6 text-gray-500'
                       xmlns='http://www.w3.org/2000/svg'
                       fill='none'
                       viewBox='0 0 24 24'
@@ -153,7 +153,7 @@ export default function Navbar() {
                 <div className='flex justify-center mb-8'>
                   <div className='flex items-center'>
                     <Image
-                      src='./logo/siteLogo/logo.svg'
+                      src='/logo/siteLogo/logo.svg'
                       alt='Ihrchane'
                       height={40}
                       width={120}
@@ -167,7 +167,7 @@ export default function Navbar() {
                     <Link
                       key={index}
                       href={menu.url}
-                      className='text-2xl font-medium text-gray-800 dark:text-gray-200 hover:text-orange-500 dark:hover:text-orange-400 transition-colors duration-200 py-2'
+                      className='text-2xl font-medium text-gray-800 hover:text-orange-500 transition-colors duration-200 py-2'
                       onClick={() => setIsMenuOpen(false)}>
                       {menu.path}
                     </Link>
@@ -176,7 +176,7 @@ export default function Navbar() {
                   {/* Contact Button */}
                   <Link
                     href='/contact'
-                    className='bg-orange-500 dark:bg-orange-600 hover:bg-orange-600 dark:hover:bg-orange-700 text-white px-8 py-4 rounded-xl text-xl font-medium transition-colors duration-200 mt-4 shadow-md w-full text-center'
+                    className='bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl text-xl font-medium transition-colors duration-200 mt-4 shadow-md w-full text-center'
                     onClick={() => setIsMenuOpen(false)}>
                     Contact Us
                   </Link>

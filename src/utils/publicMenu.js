@@ -8,7 +8,7 @@ export const menus = [
     path: "About",
   },
   {
-    url: "/sourcing",
+    url: "/home/sourcing",
     path: "Sourcing",
   },
   {
