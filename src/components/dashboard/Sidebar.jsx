@@ -88,9 +88,9 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           {/* Logo */}
           <Link
             href='/'
-            className='flex items-center p-4 md:p-6 bg-white rounded-md'>
+            className='flex items-center rounded-md'>
             <Image
-              src='/logo/siteLogo/logo.svg'
+              src='/logo/siteLogo/sidebarLogo.svg'
               alt='IHRCHANE'
               height={40}
               width={160}
