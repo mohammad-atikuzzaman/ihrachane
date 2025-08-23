@@ -3,7 +3,7 @@ import React from 'react';
 
 const CreateNewSubListPage = () => {
     return (
-        <div>
+        <div className='max-w-4x'>
             <CreateSubCategoryForm/>
         </div>
     );
