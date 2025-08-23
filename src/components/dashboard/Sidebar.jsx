@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -35,8 +34,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       path: "/dashboard/about",
       hasSubmenu: true,
       subItems: [
-        { name: "Company History", path: "/dashboard/about/history" },
-        { name: "Our Team", path: "/dashboard/about/team" },
+        { name: "Company Details", path: "/dashboard/about/details" },
+        { name: "Social Links", path: "/dashboard/about/social-links" },
       ],
     },
     { name: "Contact Form", icon: "📞", path: "/dashboard/contact" },
@@ -86,7 +85,9 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       `}>
         <div className='p-4 border-b border-orange-600 flex items-center justify-between'>
           {/* Logo */}
-          <Link href='/' className='flex items-center p-4 md:p-6 bg-white rounded-md'>
+          <Link
+            href='/'
+            className='flex items-center p-4 md:p-6 bg-white rounded-md'>
             <Image
               src='/logo/siteLogo/logo.svg'
               alt='IHRCHANE'
