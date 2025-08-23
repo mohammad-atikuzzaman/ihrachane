@@ -27,7 +27,7 @@ export default function DashboardLayout({ children }) {
               <HamburgerMenu toggleSidebar={toggleSidebar} />
             </div>
             <div className='flex gap-6 items-center'>
-              <MdFullscreen className='text-3xl hover:text-4xl' />
+              <MdFullscreen className='text-3xl hover:text-4xl hidden lg:block' />
               <div className='flex items-center gap-4'>
                 <div>
                   <h2 className='font-semibold'>{user?.name}</h2>
