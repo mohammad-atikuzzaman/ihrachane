@@ -1,4 +1,3 @@
-// middleware.js
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
@@ -12,7 +11,7 @@ export async function middleware(request) {
   console.log(token, "token");
 
   // Protected routes
-  const protectedRoutes = ["/dashboard", "/profile", "/settings"];
+  const protectedRoutes = ["/dashboard"];
   const isProtectedRoute = protectedRoutes.some((route) =>
     pathname.startsWith(route)
   );
@@ -33,12 +32,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-  matcher: [
-    "/dashboard",
-    "/dashboard/:path*",
-    "/profile/:path*",
-    "/settings/:path*",
-    "/login",
-    "/register",
-  ],
+  matcher: ["/dashboard", "/dashboard/:path*", "/login", "/register"],
 };

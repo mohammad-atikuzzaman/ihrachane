@@ -1,13 +1,8 @@
 import { CiEdit } from "react-icons/ci";
 import { AiOutlineDelete } from "react-icons/ai";
 
-const CategoriesDataTable = () => {
-  const data = [
-    { id: 1, name: "Product Sourcing" },
-    { id: 2, name: "Supplier Verification" },
-    { id: 3, name: "Air Freight" },
-    { id: 4, name: "Sea Freight" },
-  ];
+const TestimonialTable = () => {
+  const data = [];
 
   return (
     <div className='overflow-x-auto'>
@@ -39,7 +34,7 @@ const CategoriesDataTable = () => {
                   <CiEdit className='text-sm hover:text-lg text-gray-900' />
                 </div>
                 <div className='p-2 rounded-full bg-gray-100 hover:bg-gray-200 w-fit hover:p-2.5'>
-                  <AiOutlineDelete className='text-sm hover:text-lg text-gray-900'  />
+                  <AiOutlineDelete className='text-sm hover:text-lg text-gray-900' />
                 </div>
               </td>
             </tr>
@@ -50,4 +45,4 @@ const CategoriesDataTable = () => {
   );
 };
 
-export default CategoriesDataTable;
+export default TestimonialTable;

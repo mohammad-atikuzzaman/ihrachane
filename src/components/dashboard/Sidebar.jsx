@@ -1,9 +1,9 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const pathname = usePathname();
@@ -35,8 +35,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       path: "/dashboard/about",
       hasSubmenu: true,
       subItems: [
-        { name: "Company History", path: "/dashboard/about/history" },
-        { name: "Our Team", path: "/dashboard/about/team" },
+        { name: "Company Details", path: "/dashboard/about/details" },
+        { name: "Social Links", path: "/dashboard/about/social-links" },
       ],
     },
     { name: "Contact Form", icon: "📞", path: "/dashboard/contact" },
@@ -86,7 +86,9 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       `}>
         <div className='p-4 border-b border-orange-600 flex items-center justify-between'>
           {/* Logo */}
-          <Link href='/' className='flex items-center p-4 md:p-6 bg-white rounded-md'>
+          <Link
+            href='/'
+            className='flex items-center p-4 md:p-6 bg-white rounded-md'>
             <Image
               src='/logo/siteLogo/logo.svg'
               alt='IHRCHANE'
@@ -138,13 +140,12 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                           <li key={subItem.name}>
                             <Link
                               href={subItem.path}
-                              className={`block p-2 rounded-lg transition-colors ${
+                              className={`flex items-center gap-2 p-2 rounded-lg transition-colors ${
                                 isActive(subItem.path)
                                   ? "bg-orange-700"
                                   : "hover:bg-orange-600"
                               }`}
-                              onClick={handleLinkClick}>
-                              {subItem.name}
+                              onClick={handleLinkClick}> <FaArrowRightLong /> {subItem.name}
                             </Link>
                           </li>
                         ))}

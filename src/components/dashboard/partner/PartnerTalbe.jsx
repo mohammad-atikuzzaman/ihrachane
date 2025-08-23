@@ -1,12 +1,12 @@
 import { CiEdit } from "react-icons/ci";
 import { AiOutlineDelete } from "react-icons/ai";
 
-const CategoriesDataTable = () => {
+const PartnerTable = () => {
   const data = [
-    { id: 1, name: "Product Sourcing" },
-    { id: 2, name: "Supplier Verification" },
-    { id: 3, name: "Air Freight" },
-    { id: 4, name: "Sea Freight" },
+    { id: 1, name: "partner 1" },
+    { id: 2, name: "partner 2" },
+    { id: 3, name: "partner 3" },
+    { id: 4, name: "partner 4" },
   ];
 
   return (
@@ -19,6 +19,9 @@ const CategoriesDataTable = () => {
             </th>
             <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
               NAME
+            </th>
+            <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+              LOGO
             </th>
             <th className='px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider'>
               ACTION
@@ -34,12 +37,15 @@ const CategoriesDataTable = () => {
               <td className='px-6 py-4 whitespace-nowrap'>
                 <div className='text-sm text-gray-900'>{item.name}</div>
               </td>
+              <td className='px-6 py-4 whitespace-nowrap'>
+                <div className='text-sm text-gray-900'>{item?.logo || ""}</div>
+              </td>
               <td className='px-6 py-4 whitespace-nowrap flex gap-2 justify-center'>
                 <div className='p-2 rounded-full bg-gray-100 hover:bg-gray-200 w-fit hover:p-2.5'>
                   <CiEdit className='text-sm hover:text-lg text-gray-900' />
                 </div>
                 <div className='p-2 rounded-full bg-gray-100 hover:bg-gray-200 w-fit hover:p-2.5'>
-                  <AiOutlineDelete className='text-sm hover:text-lg text-gray-900'  />
+                  <AiOutlineDelete className='text-sm hover:text-lg text-gray-900' />
                 </div>
               </td>
             </tr>
@@ -50,4 +56,4 @@ const CategoriesDataTable = () => {
   );
 };
 
-export default CategoriesDataTable;
+export default PartnerTable;

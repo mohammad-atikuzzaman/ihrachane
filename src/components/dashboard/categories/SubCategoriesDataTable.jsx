@@ -1,7 +1,7 @@
 import { CiEdit } from "react-icons/ci";
 import { AiOutlineDelete } from "react-icons/ai";
 
-const CategoriesDataTable = () => {
+const SubCategoriesDataTable = () => {
   const data = [
     { id: 1, name: "Product Sourcing" },
     { id: 2, name: "Supplier Verification" },
@@ -50,4 +50,4 @@ const CategoriesDataTable = () => {
   );
 };
 
-export default CategoriesDataTable;
+export default SubCategoriesDataTable;

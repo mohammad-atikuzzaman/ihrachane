@@ -1,6 +1,4 @@
 import "@/app/globals.css";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/authOptions";
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
 
 export const metadata = {
@@ -9,11 +7,6 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const session = await getServerSession(authOptions);
-
-  // if (!session) return redirect("/login");
-  // if (session?.user?.role !== "admin") return redirect("/unauthorized");
-
   return (
     <html lang='en'>
       <body>
