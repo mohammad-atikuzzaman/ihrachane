@@ -1,6 +1,6 @@
 import dbConnect from "@/lib/mongodb";
 import User from "@/models/User";
-import generateRandomCode from "../../../../../utils/generateOtp";
+import generateRandomCode from "@/utils/generateOtp";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { mailOptions, transporter } from "@/lib/nodemailer";
