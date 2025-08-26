@@ -9,6 +9,7 @@ export default async function Home() {
       resolve("Loading promise resolved");
     }, 2000);
   });
+  
   return (
     <div className="">
       <Features />
