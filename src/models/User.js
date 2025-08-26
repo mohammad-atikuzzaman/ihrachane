@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import { ST } from 'next/dist/shared/lib/utils';
 
 const userSchema = new mongoose.Schema({
   email: {
