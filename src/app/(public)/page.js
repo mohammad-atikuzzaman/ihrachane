@@ -5,11 +5,10 @@ import Supplier from "@/components/Home/Supplier";
 import Form from "@/components/shared/Form";
 
 export default async function Home() {
-  await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("Loading promise resolved");
-    }, 2000);
-  });
+
+
+
+
   return (
     <div className="">
     
