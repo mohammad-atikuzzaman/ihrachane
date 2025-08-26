@@ -43,9 +43,12 @@ export default function DashboardLayout({ children }) {
               {/* Dropdown menu */}
               {dropdownOpen && (
                 <div className="absolute top-full right-0 mt-2 w-40 bg-white border border-gray-200 rounded shadow-md z-50">
-                  <button className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-                    Profile
-                  </button>
+                  <Link href={"/dashboard/profilesettings"}>
+                    {" "}
+                    <button className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">
+                      Profile
+                    </button>
+                  </Link>
                   <button
                     className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                     onClick={() => signOut()}
