@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
@@ -6,8 +7,8 @@ const SubCategoryServicePage = () => {
   // Dummy data
   const data = [
     { id: 1, name: "Md Atikuzzaman" },
-    { id: 2, name: "Service B" },
-    { id: 3, name: "Service C" },
+    { id: 2, name: "Nasim Mondol" },
+    { id: 3, name: "Ashraful Tusar" },
   ];
 
   return (
@@ -19,9 +20,9 @@ const SubCategoryServicePage = () => {
           <h2 className="text-lg font-semibold text-gray-700">
             Sub Category Service List
           </h2>
-          <button className="bg-orange-600 hover:bg-orange-700 cursor-pointer text-white px-4 py-2 rounded-lg shadow">
+          <Link href={'/dashboard/categories/service/createService'}><button className="bg-orange-600 hover:bg-orange-700 cursor-pointer text-white px-4 py-2 rounded-lg shadow">
             Add Sub Category
-          </button>
+          </button></Link>
         </div>
 
         {/* Table */}
