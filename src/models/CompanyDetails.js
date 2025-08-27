@@ -1,21 +1,25 @@
 import mongoose from "mongoose";
 
-const companyDetailsSchema = new mongoose.Schema({
-  companyAddress: {
-    type: String,
-    required: true,
+const companyDetailsSchema = new mongoose.Schema(
+  {
+    address: {
+      type: String,
+      required: true,
+    },
+    phoneNumber: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    whatsAppNumber: {
+      type: String,
+    },
   },
-  companyPhoneNumber: {
-    type: String,
-    required: true,
-  },
-  companyEmail: {
-    type: String,
-    required: true,
-  },
-  companyWhatsAppNumber: {
-    type: String,
-  },
-}, { timestamps: true });
+  { timestamps: true }
+);
 
-export default mongoose.models.CompanyDetails || mongoose.model("CompanyDetails", companyDetailsSchema);
+export default mongoose.models.CompanyDetails ||
+  mongoose.model("CompanyDetails", companyDetailsSchema);
