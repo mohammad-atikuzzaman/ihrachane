@@ -34,7 +34,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       {/* Mobile overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-20 md:hidden"
+          className="fixed inset-0 z-20 md:hidden"
           onClick={toggleSidebar}
         />
       )}
@@ -90,11 +90,33 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                     >
                       <span className="mr-3">{item.icon}</span>
                       <span className="flex-1 text-left">{item.name}</span>
-                      <span>
+                      <span className="ml-auto">
                         {(item.name === "Categories" && isCategoriesOpen) ||
-                        (item.name === "About Company" && isAboutOpen)
-                          ? "▲"
-                          : "▼"}
+                        (item.name === "About Company" && isAboutOpen) ? (
+                          // Chevron Up
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M18 15l-6-6-6 6" />
+                          </svg>
+                        ) : (
+                          // Chevron Down
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M6 9l6 6 6-6" />
+                          </svg>
+                        )}
                       </span>
                     </button>
 
