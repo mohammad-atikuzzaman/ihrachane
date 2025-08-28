@@ -4,43 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { menuItems } from "@/utils/dashboardMenu";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const pathname = usePathname();
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
-
-  const menuItems = [
-    { name: "Dashboard", icon: "📊", path: "/dashboard" },
-    { name: "APPS", icon: "📱", isHeader: true },
-    {
-      name: "Categories",
-      icon: "📑",
-      path: "/dashboard/categories",
-      hasSubmenu: true,
-      subItems: [
-        { name: "Category List", path: "/dashboard/categories/list" },
-        { name: "Sub-Category List", path: "/dashboard/categories/sub-list" },
-        { name: "Sub-Category Service", path: "/dashboard/categories/service" },
-      ],
-    },
-    { name: "Services", icon: "⚙️", path: "/dashboard/services" },
-    { name: "Client", icon: "👥", path: "/dashboard/client" },
-    { name: "Partner", icon: "🤝", path: "/dashboard/partner" },
-    { name: "Testimonial", icon: "⭐", path: "/dashboard/testimonial" },
-    { name: "CLASSIC CONTENTS", icon: "📚", isHeader: true },
-    {
-      name: "About Company",
-      icon: "🏢",
-      path: "/dashboard/about",
-      hasSubmenu: true,
-      subItems: [
-        { name: "Company Details", path: "/dashboard/about/details" },
-        { name: "Social Links", path: "/dashboard/about/social-links" },
-      ],
-    },
-    { name: "Contact Form", icon: "📞", path: "/dashboard/contact" },
-  ];
 
   // Expand relevant submenu if URL matches
   useEffect(() => {
