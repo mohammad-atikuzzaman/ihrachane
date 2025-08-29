@@ -4,12 +4,12 @@ export const menus = [
     path: "Home",
   },
   {
-    url: "/about",
-    path: "About",
-  },
-  {
     url: "/home/sourcing",
     path: "Sourcing",
+  },
+  {
+    url: "/warehouse",
+    path: "Warehouse",
   },
   {
     url: "/dashboard",
