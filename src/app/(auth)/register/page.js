@@ -89,8 +89,8 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br dark:from-gray-900 dark:to-black flex items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="max-w-lg w-full bg-white rounded-2xl shadow-2xl overflow-hidden">
         <div className="py-6 px-8 bg-orange-500 text-white text-center">
           <h1 className="text-3xl font-bold">Create Account</h1>
           <p className="mt-2">
