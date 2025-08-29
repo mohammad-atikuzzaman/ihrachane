@@ -1,5 +1,5 @@
-import dbConnect from "../../../../lib/mongodb";
-import SubCategory from "../../../../models/SubCategory";
+import dbConnect from "@/lib/mongodb";
+import SubCategory from "@/models/SubCategory";
 import { NextResponse } from "next/server";
 
 export async function GET() {

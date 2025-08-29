@@ -1,5 +1,5 @@
-import dbConnect from "../../../../../lib/mongodb";
-import Category from "../../../../../models/Category";
+import dbConnect from "@/lib/mongodb";
+import Category from "@/models/Category";
 import { NextResponse } from "next/server";
 
 // GET a specific category
