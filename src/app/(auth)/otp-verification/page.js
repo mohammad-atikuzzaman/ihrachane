@@ -12,7 +12,7 @@ export default function VerifyOtp() {
   const [error, setError] = useState("");
   const inputRefs = useRef([]);
   const [email, setEmail] = useState("");
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     setEmail(localStorage.getItem("email"));
@@ -78,7 +78,7 @@ export default function VerifyOtp() {
       const res = await axios.post("/api/verify-otp", data);
       if (res.statusText === "OK") {
         toast.success("Otp verification Successful");
-        router.push("/login")
+        router.push("/login");
       }
 
       localStorage.removeItem("email");
@@ -90,14 +90,15 @@ export default function VerifyOtp() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-white dark:from-gray-900 dark:to-black flex items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+      <div className="max-w-md w-full rounded-2xl shadow-lg overflow-hidden">
         <div className="py-6 px-4 sm:px-8 bg-orange-500 text-white text-center">
           <h1 className="text-2xl sm:text-3xl font-bold">
             Verify Your Account
           </h1>
           <p className="mt-2 text-sm sm:text-base">
-            Enter the 6-digit code sent to your email
+            Enter the 6-digit code sent to {" "}
+            <span className="underline">{email || "your email"}</span>
           </p>
         </div>
 
@@ -110,7 +111,7 @@ export default function VerifyOtp() {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="flex flex-col items-center">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-4 text-center">
+              <label className="block text-sm font-medium text-gray-700 mb-4 text-center">
                 Verification Code
               </label>
               <div
@@ -128,7 +129,7 @@ export default function VerifyOtp() {
                     onChange={(e) => handleChange(index, e.target.value)}
                     onKeyDown={(e) => handleKeyDown(index, e)}
                     onFocus={(e) => e.target.select()}
-                    className="w-10 h-10 sm:w-12 sm:h-12 text-center text-xl font-semibold border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 dark:bg-gray-700 dark:text-white transition duration-200"
+                    className="w-10 h-10 sm:w-12 sm:h-12 text-center text-xl font-semibold border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500  transition duration-200"
                   />
                 ))}
               </div>

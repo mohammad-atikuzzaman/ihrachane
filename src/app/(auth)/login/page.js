@@ -71,8 +71,8 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br dark:from-gray-900 dark:to-black flex items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden transition-all duration-300">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 flex items-center justify-center p-4">
+      <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl overflow-hidden transition-all duration-300">
         <div className="py-6 px-8 bg-orange-500 text-white text-center">
           <h1 className="text-3xl font-bold">Welcome Back</h1>
           <p className="mt-2">Sign in to access your account</p>
@@ -89,7 +89,7 @@ export default function Login() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                className="block text-sm font-medium text-gray-700 mb-1"
               >
                 Email Address
               </label>
@@ -102,8 +102,8 @@ export default function Login() {
                 className={`w-full px-4 py-3 border ${
                   errors.email
                     ? "border-red-500"
-                    : "border-gray-300 dark:border-gray-600"
-                } rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 dark:bg-gray-700 dark:text-white transition duration-300`}
+                    : "border-gray-300"
+                } rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-300`}
                 placeholder="leroy@jenkins.com"
               />
               {errors.email && (
@@ -115,13 +115,13 @@ export default function Login() {
               <div className="flex justify-between mb-1">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className="block text-sm font-medium text-gray-700"
                 >
                   Password
                 </label>
                 <Link
                   href="/forgot-password"
-                  className="text-xs text-orange-600 hover:text-orange-500 dark:text-orange-400 dark:hover:text-orange-300 transition-colors"
+                  className="text-xs text-orange-600 hover:text-orange-500 transition-colors"
                 >
                   Forgot password?
                 </Link>
@@ -136,13 +136,13 @@ export default function Login() {
                   className={`w-full px-4 py-3 border ${
                     errors.password
                       ? "border-red-500"
-                      : "border-gray-300 dark:border-gray-600"
-                  } rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 dark:bg-gray-700 dark:text-white transition duration-300 pr-10`}
+                      : "border-gray-300"
+                  } rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-300 pr-10`}
                   placeholder="••••••••"
                 />
                 <button
                   type="button"
-                  className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors"
+                  className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-orange-500 transition-colors"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
@@ -188,11 +188,11 @@ export default function Login() {
                 type="checkbox"
                 checked={formData.rememberMe}
                 onChange={handleChange}
-                className="h-4 w-4 text-orange-600 focus:ring-orange-500 border-gray-300 dark:border-gray-600 rounded"
+                className="h-4 w-4 text-orange-600 focus:ring-orange-500 border-gray-300 rounded"
               />
               <label
                 htmlFor="rememberMe"
-                className="ml-2 block text-sm text-gray-700 dark:text-gray-300"
+                className="ml-2 block text-sm text-gray-700"
               >
                 Remember me
               </label>
@@ -234,11 +234,11 @@ export default function Login() {
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-gray-600">
               Don&apos;t have an account yet?
               <Link
                 href="/register"
-                className="font-medium text-orange-600 hover:text-orange-500 dark:text-orange-400 dark:hover:text-orange-300 ml-1"
+                className="font-medium text-orange-600 hover:text-orange-500 ml-1"
               >
                 Sign up
               </Link>
