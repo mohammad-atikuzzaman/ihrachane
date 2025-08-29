@@ -1,12 +1,14 @@
-import React from 'react';
+import Hero from "@/components/shared/Hero";
+import React from "react";
 
-const page =async ({params}) => {
-    const {slug} = await params
-    return (
-        <div>
-            this is page : {slug}
-        </div>
-    );
+const page = async ({ params }) => {
+  const { slug } = await params;
+  return (
+    <div>
+      <Hero />
+      this is page : {slug}
+    </div>
+  );
 };
 
 export default page;
