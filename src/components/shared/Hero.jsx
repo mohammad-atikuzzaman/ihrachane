@@ -20,7 +20,7 @@ const Hero = () => {
               grow faster and reach new customers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <button className="bg-white text-orange-600 font-semibold py-3 px-8 rounded-full hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              <button className="bg-black text-white font-semibold py-3 px-8 rounded-full hover:scale-3d transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                 Get Started
               </button>
             </div>
