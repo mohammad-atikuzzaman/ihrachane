@@ -42,7 +42,7 @@ export default function Navbar() {
           ? "bg-white shadow-md py-2"
           : "bg-transparent py-4"
       }`}>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+      <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex justify-between items-center'>
           {/* Logo */}
           <Link href='/' className='flex items-center'>
@@ -68,7 +68,7 @@ export default function Navbar() {
             {/* Contact Button */}
             <Link
               href='/contact'
-              className='bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 shadow-sm'>
+              className='bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 shadow-sm'>
               Contact Us
             </Link>
           </div>
@@ -176,7 +176,7 @@ export default function Navbar() {
                   {/* Contact Button */}
                   <Link
                     href='/contact'
-                    className='bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl text-xl font-medium transition-colors duration-200 mt-4 shadow-md w-full text-center'
+                    className='bg-gray-700 hover:bg-gray-900 text-white px-8 py-4 rounded-xl text-xl font-medium transition-colors duration-200 mt-4 shadow-md w-full text-center'
                     onClick={() => setIsMenuOpen(false)}>
                     Contact Us
                   </Link>
