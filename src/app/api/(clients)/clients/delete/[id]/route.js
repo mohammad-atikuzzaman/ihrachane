@@ -1,21 +1,21 @@
 import dbConnect from "@/lib/mongodb";
-import Service from "@/models/Service";
+import Client from "@/models/Client";
 import { NextResponse } from "next/server";
 
-// GET a specific service
-export async function GET(request, { params }) {
+// DELETE a client
+export async function DELETE(request, { params }) {
   try {
     await dbConnect();
-    const service = await Service.findById(params.id);
+    const deletedClient = await Client.findByIdAndDelete(params.id);
 
-    if (!service) {
+    if (!deletedClient) {
       return NextResponse.json(
-        { success: false, error: "Service not found" },
+        { success: false, error: "Client not found" },
         { status: 404 }
       );
     }
 
-    return NextResponse.json({ success: true, data: service });
+    return NextResponse.json({ success: true, data: {} });
   } catch (error) {
     return NextResponse.json(
       { success: false, error: error.message },

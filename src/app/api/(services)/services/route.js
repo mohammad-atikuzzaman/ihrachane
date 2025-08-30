@@ -1,6 +1,6 @@
-import dbConnect from '@/lib/mongodb';
-import Service from '@/models/Service';
-import { NextResponse } from 'next/server';
+import dbConnect from "@/lib/mongodb";
+import Service from "@/models/Service";
+import { NextResponse } from "next/server";
 
 // GET all services
 export async function GET() {
@@ -9,6 +9,9 @@ export async function GET() {
     const services = await Service.find({});
     return NextResponse.json({ success: true, data: services });
   } catch (error) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: error.message },
+      { status: 500 }
+    );
   }
 }
