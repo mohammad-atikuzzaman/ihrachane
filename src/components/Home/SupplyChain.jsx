@@ -25,7 +25,7 @@ const tabs = [
   },
 ];
 
-export default function Services() {
+export default function SupplyChain() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
@@ -36,7 +36,7 @@ export default function Services() {
           SUPPLY CHAIN OPTIMIZATION
         </h2>
 
-        {/* Tabs */}
+     
         {/* Tabs */}
         <div className="flex flex-wrap justify-center gap-6 mb-8">
           {tabs.map((tab, index) => (
