@@ -1,90 +1,47 @@
 import React from "react";
+import { FaUserShield, FaCheckCircle, FaGlobeAmericas } from "react-icons/fa";
 
 const MoreInfo = () => {
+  const features = [
+    {
+      icon: <FaUserShield className="w-6 h-6 text-orange-600" />,
+      title: "Verified Suppliers",
+      description: "All suppliers are thoroughly vetted and verified",
+    },
+    {
+      icon: <FaCheckCircle className="w-6 h-6 text-orange-600" />,
+      title: "Quality Assurance",
+      description: "Comprehensive quality control and inspection",
+    },
+    {
+      icon: <FaGlobeAmericas className="w-6 h-6 text-orange-600" />,
+      title: "Global Network",
+      description: "Access to suppliers in 50+ countries",
+    },
+  ];
   return (
     <div className="space-y-6">
-      <div className="bg-white shadow-xl rounded-2xl p-6 border border-orange-100">
-        <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-          <span className="bg-orange-100 text-orange-600 p-2 rounded-lg mr-3">
-            ✓
+      <div className="bg-white shadow-lg rounded-2xl p-8 border border-orange-100 max-w-xl mx-auto">
+        <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+          <span className="bg-orange-100 text-orange-600 p-3 rounded-xl">
+            <FaUserShield className="w-6 h-6" />
           </span>
           Why Choose Us?
         </h3>
-        <ul className="space-y-4">
-          <li className="flex items-start">
-            <div className="bg-orange-100 text-orange-600 rounded-full p-2 mr-3 mt-0.5">
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 13l4 4L19 7"
-                ></path>
-              </svg>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-800">
-                Verified Suppliers
-              </h4>
-              <p className="text-gray-600 text-sm">
-                All suppliers are thoroughly vetted and verified
-              </p>
-            </div>
-          </li>
-          <li className="flex items-start">
-            <div className="bg-orange-100 text-orange-600 rounded-full p-2 mr-3 mt-0.5">
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 13l4 4L19 7"
-                ></path>
-              </svg>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-800">Quality Assurance</h4>
-              <p className="text-gray-600 text-sm">
-                Comprehensive quality control and inspection
-              </p>
-            </div>
-          </li>
-          <li className="flex items-start">
-            <div className="bg-orange-100 text-orange-600 rounded-full p-2 mr-3 mt-0.5">
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 13l4 4L19 7"
-                ></path>
-              </svg>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-800">Global Network</h4>
-              <p className="text-gray-600 text-sm">
-                Access to suppliers in 50+ countries
-              </p>
-            </div>
-          </li>
+        <ul className="space-y-5">
+          {features.map((feature, index) => (
+            <li key={index} className="flex items-start gap-4">
+              <div className="bg-orange-50 p-3 rounded-full shadow-sm">
+                {feature.icon}
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800 text-lg">
+                  {feature.title}
+                </h4>
+                <p className="text-gray-600 text-sm">{feature.description}</p>
+              </div>
+            </li>
+          ))}
         </ul>
       </div>
 

@@ -1,4 +1,3 @@
-// app/sourcing/page.js
 "use client";
 
 import { useState } from "react";
@@ -20,6 +19,7 @@ export default function SourcingPage() {
     productDescription: "",
     budgetRange: "",
     requiredTimeline: "",
+    preferredContact: "", // 👈 new field
   });
 
   const handleChange = (e) => {
@@ -38,26 +38,29 @@ export default function SourcingPage() {
       <Header />
 
       {/* Main Form & Info Section */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
         {/* Form */}
         <form
-          className="lg:col-span-2 bg-white shadow-xl rounded-2xl p-8 space-y-6 border border-orange-100"
+          className="lg:col-span-2 bg-white shadow-xl rounded-2xl p-10 space-y-8 border border-orange-100"
           onSubmit={handleSubmit}
         >
+          {/* Form Heading */}
           <div className="pb-4 border-b border-orange-200">
-            <h2 className="text-2xl font-bold text-gray-900">
+            <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight">
               Product Sourcing Request
             </h2>
-            <p className="text-gray-600 text-sm mt-2">
-              Please fill in the details below and we'll discuss your
-              requirements as soon as possible.
+            <p className="text-gray-600 text-base mt-2">
+              Submit your product requirements and we'll connect you with{" "}
+              <span className="font-medium text-orange-600">
+                verified suppliers worldwide.
+              </span>
             </p>
           </div>
 
           {/* Name */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-semibold text-gray-700 mb-1">
                 First Name *
               </label>
               <input
@@ -66,11 +69,11 @@ export default function SourcingPage() {
                 required
                 value={formData.firstName}
                 onChange={handleChange}
-                className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
+                className="border border-gray-300 rounded-xl px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-semibold text-gray-700 mb-1">
                 Last Name *
               </label>
               <input
@@ -79,15 +82,15 @@ export default function SourcingPage() {
                 required
                 value={formData.lastName}
                 onChange={handleChange}
-                className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
+                className="border border-gray-300 rounded-xl px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
               />
             </div>
           </div>
 
           {/* Company & Country */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-semibold text-gray-700 mb-1">
                 Company *
               </label>
               <input
@@ -96,11 +99,11 @@ export default function SourcingPage() {
                 required
                 value={formData.company}
                 onChange={handleChange}
-                className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
+                className="border border-gray-300 rounded-xl px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-semibold text-gray-700 mb-1">
                 Country *
               </label>
               <select
@@ -108,9 +111,9 @@ export default function SourcingPage() {
                 required
                 value={formData.country}
                 onChange={handleChange}
-                className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
+                className="border border-gray-300 rounded-xl px-4 py-3 w-full bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
               >
-                <option value="">Select your country</option>
+                <option disabled value="">Select your country</option>
                 {countries.map((country) => (
                   <option key={country.code} value={country.code}>
                     {country.name}
@@ -121,9 +124,9 @@ export default function SourcingPage() {
           </div>
 
           {/* Email & Phone */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-semibold text-gray-700 mb-1">
                 Email *
               </label>
               <input
@@ -132,11 +135,11 @@ export default function SourcingPage() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
+                className="border border-gray-300 rounded-xl px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-semibold text-gray-700 mb-1">
                 Phone Number *
               </label>
               <div className="flex">
@@ -144,7 +147,7 @@ export default function SourcingPage() {
                   name="phoneCode"
                   value={formData.phoneCode}
                   onChange={handleChange}
-                  className="border border-gray-300 rounded-l-lg px-3 py-3 w-1/4 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
+                  className="border border-gray-300 rounded-l-xl px-3 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
                 >
                   {countries.map((country) => (
                     <option key={country.code} value={country.phone}>
@@ -158,28 +161,51 @@ export default function SourcingPage() {
                   required
                   value={formData.phoneNumber}
                   onChange={handleChange}
-                  className="border border-gray-300 border-l-0 rounded-r-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
+                  className="border border-gray-300 border-l-0 rounded-r-xl px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
                   placeholder="123 456 7890"
                 />
               </div>
             </div>
           </div>
 
+          {/* Preferred Contact */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Preferred Contact Method *
+            </label>
+            <div className="flex items-center gap-6">
+              {["Phone", "WhatsApp", "Email"].map((method) => (
+                <label key={method} className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="preferredContact"
+                    value={method.toLowerCase()}
+                    checked={formData.preferredContact === method.toLowerCase()}
+                    onChange={handleChange}
+                    className="text-orange-600 focus:ring-orange-500"
+                    required
+                  />
+                  <span className="text-gray-700">{method}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
           {/* Product Requirements */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-3">
+            <label className="block text-sm font-semibold text-gray-700 mb-3">
               Product Requirements
             </label>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
               <div>
                 <select
                   name="productCategory"
                   required
                   value={formData.productCategory}
                   onChange={handleChange}
-                  className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
+                  className="border border-gray-300 rounded-xl px-4 py-3 w-full bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
                 >
-                  <option value="">Select category *</option>
+                  <option disabled value="">Select category *</option>
                   <option value="Electronics">Electronics</option>
                   <option value="Apparel">Apparel</option>
                   <option value="Furniture">Furniture</option>
@@ -192,7 +218,7 @@ export default function SourcingPage() {
                   placeholder="Expected Quantity e.g., 1000 units"
                   value={formData.expectedQuantity}
                   onChange={handleChange}
-                  className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
+                  className="border border-gray-300 rounded-xl px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
                 />
               </div>
             </div>
@@ -203,22 +229,22 @@ export default function SourcingPage() {
                 required
                 value={formData.productDescription}
                 onChange={handleChange}
-                className="border border-gray-300 rounded-lg px-4 py-3 w-full h-32 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
+                className="border border-gray-300 rounded-xl px-4 py-3 w-full h-32 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
               ></textarea>
             </div>
           </div>
 
           {/* Budget & Timeline */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-semibold text-gray-700 mb-1">
                 Budget Range
               </label>
               <select
                 name="budgetRange"
                 value={formData.budgetRange}
                 onChange={handleChange}
-                className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
+                className="border border-gray-300 rounded-xl px-4 py-3 w-full bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
               >
                 <option disabled value="">
                   Select budget range
@@ -229,14 +255,14 @@ export default function SourcingPage() {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-semibold text-gray-700 mb-1">
                 Required Timeline
               </label>
               <select
                 name="requiredTimeline"
                 value={formData.requiredTimeline}
                 onChange={handleChange}
-                className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
+                className="border border-gray-300 rounded-xl px-4 py-3 w-full bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
               >
                 <option disabled value="">
                   When do you need this?
@@ -250,7 +276,7 @@ export default function SourcingPage() {
 
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-4 px-6 rounded-lg transition-all shadow-md hover:shadow-lg"
+            className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-lg font-semibold py-4 px-6 rounded-xl transition-all shadow-md hover:shadow-lg"
           >
             Submit Sourcing Request
           </button>
