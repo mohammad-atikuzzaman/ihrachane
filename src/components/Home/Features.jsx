@@ -33,7 +33,7 @@ export default function Features() {
   return (
     <section className="bg-white py-12">
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {features.map((feature, index) => (
+        {features?.map((feature, index) => (
           <div
             key={index}
             className="bg-black text-white rounded-lg shadow-md p-6 flex flex-col items-center justify-center 
