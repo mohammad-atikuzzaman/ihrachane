@@ -5,7 +5,6 @@ const Hero = () => {
   return (
     <section className="pt-16 bg-gradient-to-r from-[#FF7416] to-[#FFA970]">
       <div className="container px-4 sm:px-6 lg:px-8 min-h-[700px] bg-gradient-to-l from-orange-100 to-orange-400 bg-[url('/pattern/boxes.svg')] bg-no-repeat bg-[position:right_bottom] grid md:grid-cols-2 gap-8 mx-auto relative">
-        
         {/* Left Side: Text Content (center vertically) */}
         <div className="flex items-center">
           <div className="relative z-20 max-w-2xl text-center md:text-left">
