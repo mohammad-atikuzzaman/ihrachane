@@ -1,4 +1,5 @@
 import React from "react";
+import { HiOutlineGlobeAlt } from "react-icons/hi";
 import { FaUserShield, FaCheckCircle, FaGlobeAmericas } from "react-icons/fa";
 
 const MoreInfo = () => {
@@ -23,15 +24,15 @@ const MoreInfo = () => {
     <div className="space-y-6">
       <div className="bg-white shadow-lg rounded-2xl p-8 border border-orange-100 max-w-xl mx-auto">
         <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-          <span className="bg-orange-100 text-orange-600 p-3 rounded-xl">
-            <FaUserShield className="w-6 h-6" />
+          <span className="bg-orange-100 text-orange-600 p-2 rounded-full">
+            <HiOutlineGlobeAlt className="w-8 h-8" />
           </span>
           Why Choose Us?
         </h3>
         <ul className="space-y-5">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start gap-4">
-              <div className="bg-orange-50 p-3 rounded-full shadow-sm">
+              <div className="bg-orange-50 p-2 rounded-full shadow-sm">
                 {feature.icon}
               </div>
               <div>
