@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
 const subCategorySchema = new mongoose.Schema({
-  subTitle: {
+  title: {
     type: String,
     required: true,
   },
-  selectCategory: {
+  selectedCategory: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Category", // Relation with Category
     required: true,
@@ -13,7 +13,7 @@ const subCategorySchema = new mongoose.Schema({
   bannerImg: {
     type: String,
   },
-  subCategoryDescription: {
+  description: {
     type: String,
   },
 }, { timestamps: true });
