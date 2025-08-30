@@ -26,7 +26,7 @@ export default function Service() {
           <div className="flex flex-col gap-8">
             {/* Card 1 */}
             <div className="bg-orange-50 hover:bg-gray-50 transition rounded-2xl shadow-md p-6 flex items-start gap-5">
-              <div className="bg-orange-100 p-3 rounded-full">
+              <div className="bg-orange-200 p-3 rounded-full">
                 <FaBoxOpen className="text-orange-600 text-2xl" />
               </div>
               <div>
@@ -41,7 +41,7 @@ export default function Service() {
 
             {/* Card 2 */}
             <div className="bg-orange-50 hover:bg-gray-50 transition rounded-2xl shadow-md p-6 flex items-start gap-5">
-              <div className="bg-orange-100 p-3 rounded-full">
+              <div className="bg-orange-200 p-3 rounded-full">
                 <FaCheckCircle className="text-orange-600 text-2xl" />
               </div>
               <div>
