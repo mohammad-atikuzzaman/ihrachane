@@ -18,20 +18,21 @@ export const metadata = {
   description: "The power full sourcing service",
   icons: {
     icon: "/logo/siteLogo/logo.svg",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    shortcut: "/logo/siteLogo/logo.svg",
+    apple: "/logo/siteLogo/logo.svg",
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en' data-theme="light">
+    <html lang="en" data-theme="light">
       <AppProvider>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <main>{children}</main>
-        <Toaster />
-      </body>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <main>{children}</main>
+          <Toaster />
+        </body>
       </AppProvider>
     </html>
   );

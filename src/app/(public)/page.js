@@ -10,7 +10,14 @@ import OurCustomers from "@/components/Home/OurCustomers";
 export default async function Home() {
   return (
     <div className="">
-      <Hero />
+      <Hero
+        img={"/asset/1.png"}
+        info={{
+          span: "Home",
+          title: `This is home page`,
+          details: `This is the details page of home`,
+        }}
+      />
       <Features />
       <OurServices/>
       <SupplyChain />
