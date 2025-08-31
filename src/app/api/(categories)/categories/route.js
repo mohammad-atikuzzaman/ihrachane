@@ -5,7 +5,7 @@ import Category from "@/models/Category";
 export async function GET() {
   try {
     await dbConnect();
-    const categories = await Category.find({});
+    const categories = await Category.find({}, { name: 1, _id: 0 });
     return NextResponse.json({ success: true, data: categories });
   } catch (error) {
     return NextResponse.json(

@@ -33,7 +33,7 @@ export default function SourcingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white py-12 px-4 sm:px-6 lg:px-8">
+    <div id="contact" className=" bg-gradient-to-b from-orange-50 to-white py-12 px-4 sm:px-6 lg:px-8">
       {/* Top Section */}
       <Header />
 
@@ -113,7 +113,9 @@ export default function SourcingPage() {
                 onChange={handleChange}
                 className="border border-gray-300 rounded-xl px-4 py-3 w-full bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
               >
-                <option disabled value="">Select your country</option>
+                <option disabled value="">
+                  Select your country
+                </option>
                 {countries.map((country) => (
                   <option key={country.code} value={country.code}>
                     {country.name}
@@ -175,7 +177,10 @@ export default function SourcingPage() {
             </label>
             <div className="flex items-center gap-6">
               {["Phone", "WhatsApp", "Email"].map((method) => (
-                <label key={method} className="flex items-center gap-2 cursor-pointer">
+                <label
+                  key={method}
+                  className="flex items-center gap-2 cursor-pointer"
+                >
                   <input
                     type="radio"
                     name="preferredContact"
@@ -205,7 +210,9 @@ export default function SourcingPage() {
                   onChange={handleChange}
                   className="border border-gray-300 rounded-xl px-4 py-3 w-full bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition"
                 >
-                  <option disabled value="">Select category *</option>
+                  <option disabled value="">
+                    Select category *
+                  </option>
                   <option value="Electronics">Electronics</option>
                   <option value="Apparel">Apparel</option>
                   <option value="Furniture">Furniture</option>
