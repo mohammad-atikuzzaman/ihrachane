@@ -27,7 +27,6 @@ const fetchCategories = async () => {
 
 export default async function Navbar() {
   const categories = await fetchCategories();
-  console.log("category menu", categories);
   const menus = [...staticMenus, ...categories];
 
   // Pass menus to client component
