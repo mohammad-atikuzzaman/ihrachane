@@ -1,22 +1,30 @@
 import Clients from "@/components/Home/Clients";
 import Features from "@/components/Home/Features";
-import Services from "@/components/Home/Services";
 import Supplier from "@/components/Home/Supplier";
 import Form from "@/components/shared/Form";
+import Hero from "@/components/shared/Hero";
+import SupplyChain from "@/components/Home/SupplyChain";
+import OurServices from "@/components/Home/OurServices";
+import OurCustomers from "@/components/Home/OurCustomers";
 
 export default async function Home() {
-
-
-
-
   return (
     <div className="">
-    
+      <Hero
+        img={"/asset/1.png"}
+        info={{
+          span: "Home",
+          title: `This is home page`,
+          details: `This is the details page of home`,
+        }}
+      />
       <Features />
-      <Services />
+      <OurServices/>
+      <SupplyChain />
       <Supplier />
+      <OurCustomers/>
       <Clients />
-      <Form/>
+      <Form />
     </div>
   );
 }

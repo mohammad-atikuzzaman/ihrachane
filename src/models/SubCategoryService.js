@@ -1,19 +1,19 @@
 import mongoose from "mongoose";
 
 const subCategoryServiceSchema = new mongoose.Schema({
-  subCategoryServiceName: {
+  serviceName: {
     type: String,
     required: true,
   },
-  subCategorySelect: {
+  selectedSubCategory: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "SubCategory", // Relation with SubCategory
     required: true,
   },
-  subCategoryServiceBannerImg: {
+  bannerImg: {
     type: String,
   },
-  subCategoryServiceDescription: {
+  description: {
     type: String,
   },
 }, { timestamps: true });
