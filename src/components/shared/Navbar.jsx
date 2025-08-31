@@ -1,5 +1,7 @@
 // components/Navbar.jsx
+import dbConnect from "@/lib/mongodb";
 import NavbarClient from "./NavbarClient";
+import Category from "@/models/Category";
 
 const staticMenus = [
   { url: "/", path: "Home" },
@@ -9,17 +11,15 @@ const staticMenus = [
 
 const fetchCategories = async () => {
   try {
-    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/categories`, {
-      next: { revalidate: 60 }, // ISR
-    });
-    const data = await res.json();
-    if (data.success) {
-      return data.data.map((cat) => ({
-        url: `/home/${cat.name.toLowerCase().replace(/\s+/g, "-")}`,
-        path: cat.name,
-      }));
+    await dbConnect();
+    const categories = await Category.find({}, { name: 1, _id: 0 }).lean();
+    if (!categories) {
+      return [];
     }
-    return [];
+    return categories.map((cat) => ({
+      url: `/home/${cat.name.toLowerCase().replace(/\s+/g, "-")}`,
+      path: cat.name,
+    }));
   } catch {
     return [];
   }
