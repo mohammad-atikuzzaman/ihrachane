@@ -4,7 +4,7 @@ import Image from "next/image";
 import { getData } from "@/utils/axiosPublic";
 
 const Testimonials = () => {
-  
+
   const [testimonials, setTestimonials] = useState([]);
   useEffect(() => {
     async function fetchData() {
