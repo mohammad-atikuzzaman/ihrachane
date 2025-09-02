@@ -5,16 +5,15 @@ import { NextResponse } from "next/server";
 // GET a specific category
 export async function GET(request, { params }) {
   try {
+    // Await the params first
+    const { name } = await params;
     await dbConnect();
 
-    const categoryName = decodeURIComponent(params.name);
+    const categoryName = decodeURIComponent(name);
 
     const category = await Category.findOne({
       name: { $regex: new RegExp(`^${categoryName}$`, "i") },
-    }).populate({
-      path: "subCategories",
-      model: "SubCategory",
-    });
+    }).populate("subCategories");
 
     if (!category) {
       return NextResponse.json(
