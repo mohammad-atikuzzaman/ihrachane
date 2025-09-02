@@ -8,17 +8,17 @@ const OurServices = () => {
       title: "Drop ship",
       description:
         "Enter Service Paragraph Text fad lorem ipsum dolor sit amet.",
-      bg: "/images/bg1.jpg", 
+      bg: "https://picsum.photos/200", 
     },
     {
       title: "Logistics",
       description: "We provide fast and reliable logistics solutions.",
-      bg: "/images/bg2.jpg",
+      bg: "https://picsum.photos/200",
     },
     {
       title: "Warehousing",
       description: "Secure and scalable warehousing for your business.",
-      bg: "/images/bg3.jpg",
+      bg: "https://picsum.photos/200",
     },
   ];
 
