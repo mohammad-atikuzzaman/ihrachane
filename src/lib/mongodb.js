@@ -1,40 +1,30 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
+import "@/models/Category";
+import "@/models/SubCategory";
+import "@/models/Client";
+import "@/models/CompanyDetails";
+import "@/models/ContactForm";
+import "@/models/Partner";
+import "@/models/Service";
+import "@/models/SocialLink";
+import "@/models/SubCategoryService";
+import "@/models/Testimonial";
+import "@/models/User";
 
-const MONGODB_URI = process.env.MONGODB_URI;
+let isConnected = false;
 
-if (!MONGODB_URI) {
-  throw new Error('Please define the MONGODB_URI environment variable');
-}
-
-let cached = global.mongoose;
-
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
-}
-
-async function dbConnect() {
-  if (cached.conn) {
-    return cached.conn;
-  }
-
-  if (!cached.promise) {
-    const opts = {
-      bufferCommands: false,
-    };
-
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
-      return mongoose;
-    });
-  }
-
+const dbConnect = async () => {
+  if (isConnected) return;
   try {
-    cached.conn = await cached.promise;
-  } catch (e) {
-    cached.promise = null;
-    throw e;
+    const conn = await mongoose.connect(process.env.MONGODB_URI, {
+      dbName: "ihrfaset",
+    });
+    isConnected = conn.connections[0].readyState;
+    console.log("✅ MongoDB Connected");
+  } catch (error) {
+    console.error("❌ MongoDB connection error:", error);
+    throw new Error("MongoDB connection failed");
   }
-
-  return cached.conn;
-}
+};
 
 export default dbConnect;
