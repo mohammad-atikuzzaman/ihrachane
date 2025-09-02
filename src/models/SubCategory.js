@@ -7,7 +7,7 @@ const subCategorySchema = new mongoose.Schema({
   },
   selectedCategory: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Category", // Relation with Category
+    ref: "Category",
     required: true,
   },
   bannerImg: {
