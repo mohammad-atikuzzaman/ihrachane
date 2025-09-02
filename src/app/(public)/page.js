@@ -5,7 +5,7 @@ import Form from "@/components/shared/Form";
 import Hero from "@/components/shared/Hero";
 import SupplyChain from "@/components/Home/SupplyChain";
 import OurServices from "@/components/Home/OurServices";
-import OurCustomers from "@/components/Home/OurCustomers";
+import Testimonials from "@/components/Home/Testimonials";
 
 export default async function Home() {
   return (
@@ -19,10 +19,10 @@ export default async function Home() {
         }}
       />
       <Features />
-      <OurServices/>
+      <OurServices />
       <SupplyChain />
       <Supplier />
-      <OurCustomers/>
+      <Testimonials />
       <Clients />
       <Form />
     </div>

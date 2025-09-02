@@ -1,14 +1,17 @@
 "use client";
-import { getApi } from "@/utils/axiosPublic";
+import { getData } from "@/utils/axiosPublic";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Clients() {
   const [clients, setClients] = useState([]);
-  useEffect(async () => {
-    const { data } = await getApi("/api/clients");
+  useEffect(() => {
+    async function fetchData() {
+      const { data } = await getData("/api/clients");
+      setClients(data);
+    }
     // console.log(data);
-    setClients(data);
+    fetchData()
   }, []);
 
   return (
