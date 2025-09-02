@@ -1,16 +1,8 @@
-export const getApi = async (path) => {
-  const base =
-    typeof window === "undefined"
-      ? process.env.NEXT_PUBLIC_BASE_URL // server side
-      : ""; // client side (relative path)
+import axios from "axios";
 
-  const res = await fetch(`${base}${path}`, {
-    next: { revalidate: 60 }, // ISR: refresh data every 60s
-  });
-
-  if (!res.ok) {
-    throw new Error(`Failed to fetch ${path}, status: ${res.status}`);
-  }
-
-  return res.json();
+export const getApi = async ( path ) => {
+  const { data } = await axios.get(
+    `${process.env.NEXT_PUBLIC_BASE_URL}${path}`
+  );
+  return data;  
 };

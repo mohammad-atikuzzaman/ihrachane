@@ -1,14 +1,16 @@
 "use client";
-import axios from "axios";
+import { getApi } from "@/utils/axiosPublic";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Clients() {
   const [clients, setClients] = useState([]);
-  useEffect(() => {
-    axios("/api/clients").then(({ data }) => setClients(data?.data));
+  useEffect(async () => {
+    const { data } = await getApi("/api/clients");
+    // console.log(data);
+    setClients(data);
   }, []);
-  // console.log(clients);
+
   return (
     <section className="bg-white py-12 px-4">
       <div className="max-w-7xl mx-auto">
