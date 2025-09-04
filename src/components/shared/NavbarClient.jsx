@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import "./navbar.css";
 
-export default function NavbarClient({menus}) {
+export default function NavbarClient({ menus }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -49,7 +49,9 @@ export default function NavbarClient({menus}) {
     <>
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-100 ${
-          isScrolled ? "bg-white text-gray-700 shadow-md py-2" : "bg-transparent text-white py-4"
+          isScrolled
+            ? "bg-white text-gray-700 shadow-md py-2"
+            : "bg-transparent text-white py-4"
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,7 +59,11 @@ export default function NavbarClient({menus}) {
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <Image
-                src={isScrolled ? "/logo/siteLogo/logo.svg": "/logo/siteLogo/sidebarLogo.svg"}
+                src={
+                  isScrolled
+                    ? "/logo/siteLogo/logo.svg"
+                    : "/logo/siteLogo/sidebarLogo.svg"
+                }
                 alt="IHRCHANE"
                 height={40}
                 width={160}
@@ -72,7 +78,7 @@ export default function NavbarClient({menus}) {
                   href={menu.url}
                   className="hover:text-orange-700 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-200"
                 >
-                  {menu.path}
+                  {menu.path.toUpperCase()}
                 </Link>
               ))}
 
