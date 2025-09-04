@@ -5,7 +5,6 @@ import Category from "@/models/Category";
 
 const staticMenus = [
   { url: "/", path: "Home" },
-  { url: "/home/sourcing", path: "Sourcing" },
   { url: "/dashboard", path: "Dashboard" },
 ];
 

@@ -6,8 +6,6 @@ import Service from "../sourcing/Service";
 import { getData } from "@/utils/axiosPublic";
 
 const Wrapper = ({ slug }) => {
-  console.log(slug);
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -29,7 +27,7 @@ const Wrapper = ({ slug }) => {
           details: data?.mainBannerDescription,
         }}
       />
-      <Service />
+      <Service subCategories={data?.subCategories} contentSideImg={data?.contentSideImg} />
     </>
   );
 };
