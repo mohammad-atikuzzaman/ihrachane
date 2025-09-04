@@ -10,7 +10,6 @@ export default function Clients() {
       const { data } = await getData("/api/clients");
       setClients(data);
     }
-    // console.log(data);
     fetchData()
   }, []);
 

@@ -12,20 +12,21 @@ const Wrapper = ({ slug }) => {
 
   useEffect(() => {
     async function fetchData() {
-      const { data } = await getData("/api/categories");
-      console.log(data);
+      const { data } = await getData(`/api/categories/by-name/${slug}`);
+      setData(data);
     }
     fetchData();
   }, [slug]);
+  console.log(data);
 
   return (
     <>
       <Hero
-        img={"/asset/1.png"}
+        img={data?.bannerImg}
         info={{
-          span: slug,
-          title: `This is ${slug} page`,
-          details: `This is the details page of ${slug}`,
+          span: data?.mainBannerSpan,
+          title: data?.mainBannerHeader,
+          details: data?.mainBannerDescription,
         }}
       />
       <Service />
