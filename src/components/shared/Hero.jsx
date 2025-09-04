@@ -16,10 +16,13 @@ const Hero = ({ img, info }) => {
               {info?.title}
             </h1>
             <p className="text-white text-lg md:text-xl mb-8 opacity-90">
-             {info?.details}
+              {info?.details}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <Link href="#contact" className="bg-black text-white font-semibold py-3 px-8 rounded-full hover:scale-3d transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              <Link
+                href="#contact"
+                className="bg-black text-white font-semibold py-3 px-8 rounded-full hover:scale-3d transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
                 Get Started
               </Link>
             </div>
@@ -28,14 +31,14 @@ const Hero = ({ img, info }) => {
 
         {/* Right Side: Image (always bottom aligned) */}
         <div className="flex items-end justify-center md:justify-end">
-          {img && <Image
+          <Image
             src={img}
             alt="Hero Image"
             width={500}
             height={400}
             className="max-w-full h-auto object-contain"
             priority
-          />}
+          />
         </div>
       </div>
     </section>
