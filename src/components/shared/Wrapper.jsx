@@ -6,29 +6,28 @@ import Service from "../sourcing/Service";
 import { getData } from "@/utils/axiosPublic";
 
 const Wrapper = ({ slug }) => {
-  console.log(slug);
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const { data } = await getData("/api/categories");
-      console.log(data);
+      const { data } = await getData(`/api/categories/by-name/${slug}`);
+      setData(data);
     }
     fetchData();
   }, [slug]);
+  console.log(data);
 
   return (
     <>
       <Hero
-        img={"/asset/1.png"}
+        img={data?.bannerImg}
         info={{
-          span: slug,
-          title: `This is ${slug} page`,
-          details: `This is the details page of ${slug}`,
+          span: data?.mainBannerSpan,
+          title: data?.mainBannerHeader,
+          details: data?.mainBannerDescription,
         }}
       />
-      <Service />
+      <Service subCategories={data?.subCategories} contentSideImg={data?.contentSideImg} />
     </>
   );
 };

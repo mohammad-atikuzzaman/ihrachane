@@ -1,6 +1,4 @@
-import Hero from "@/components/shared/Hero";
-import Wrapper from "@/components/shared/Wrapper";
-import Service from "@/components/sourcing/Service";
+import Wrapper from "@/components/shared/Wrapper";  
 import SourcingSection from "@/components/sourcing/SourcingSection";
 import React from "react";
 
