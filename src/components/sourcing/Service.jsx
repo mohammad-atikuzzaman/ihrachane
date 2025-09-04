@@ -2,7 +2,6 @@ import Image from "next/image";
 import { FaBoxOpen, FaCheckCircle } from "react-icons/fa";
 
 export default function Service({ subCategories, contentSideImg }) {
-  console.log("subcategories", subCategories);
   return (
     <section className="py-16 px-6 md:px-12 bg-white">
       <div className="max-w-6xl mx-auto">
@@ -47,7 +46,6 @@ export default function Service({ subCategories, contentSideImg }) {
                   </div>
                 </div>
               ))}
-
           </div>
         </div>
       </div>
