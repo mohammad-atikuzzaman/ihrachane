@@ -28,14 +28,14 @@ const Hero = ({ img, info }) => {
 
         {/* Right Side: Image (always bottom aligned) */}
         <div className="flex items-end justify-center md:justify-end">
-          <Image
+          {img && <Image
             src={img}
             alt="Hero Image"
             width={500}
             height={400}
             className="max-w-full h-auto object-contain"
             priority
-          />
+          />}
         </div>
       </div>
     </section>
