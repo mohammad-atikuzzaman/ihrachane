@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FaBoxOpen, FaCheckCircle } from "react-icons/fa";
+import { FaBoxOpen} from "react-icons/fa";
 
 export default function Service({ subCategories, contentSideImg }) {
   return (
@@ -27,7 +27,7 @@ export default function Service({ subCategories, contentSideImg }) {
             {/* Card 1 */}
             {subCategories?.map((subCategory, index) => (
               <div
-                key={subCategory._id}
+                key={subCategory?._id}
                 className="bg-orange-50 hover:bg-gray-50 transition rounded-2xl shadow-md p-6 flex items-start gap-5"
               >
                 <div className="bg-orange-200 p-3 rounded-full">
