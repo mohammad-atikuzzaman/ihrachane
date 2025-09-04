@@ -15,7 +15,6 @@ const Wrapper = ({ slug }) => {
     }
     fetchData();
   }, [slug]);
-  console.log(data);
 
   return (
     <>

@@ -13,39 +13,36 @@ export default function Service({ subCategories, contentSideImg }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Left Image */}
           <div className="relative w-full h-72 md:h-96 rounded-2xl overflow-hidden shadow-lg bg-gradient-to-r from-orange-500 to-orange-400">
-            {contentSideImg && (
-              <Image
-                src={contentSideImg}
-                alt="Sourcing services"
-                fill
-                className="object-cover"
-                priority
-              />
-            )}
+            <Image
+              src={contentSideImg}
+              alt="Sourcing services"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
 
           {/* Right Service List */}
           <div className="flex flex-col gap-8 cursor-pointer">
             {/* Card 1 */}
-            {subCategories &&
-              subCategories?.map((subCategory, index) => (
-                <div
-                  key={subCategory._id}
-                  className="bg-orange-50 hover:bg-gray-50 transition rounded-2xl shadow-md p-6 flex items-start gap-5"
-                >
-                  <div className="bg-orange-200 p-3 rounded-full">
-                    <FaBoxOpen className="text-orange-600 text-2xl" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-black mb-1">
-                      {index + 1}. {subCategory?.title}
-                    </h3>
-                    <p className="text-gray-700 text-base leading-relaxed">
-                      {subCategory?.description}
-                    </p>
-                  </div>
+            {subCategories?.map((subCategory, index) => (
+              <div
+                key={subCategory._id}
+                className="bg-orange-50 hover:bg-gray-50 transition rounded-2xl shadow-md p-6 flex items-start gap-5"
+              >
+                <div className="bg-orange-200 p-3 rounded-full">
+                  <FaBoxOpen className="text-orange-600 text-2xl" />
                 </div>
-              ))}
+                <div>
+                  <h3 className="text-xl font-semibold text-black mb-1">
+                    {index + 1}. {subCategory?.title}
+                  </h3>
+                  <p className="text-gray-700 text-base leading-relaxed">
+                    {subCategory?.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
