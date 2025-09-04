@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FaBoxOpen} from "react-icons/fa";
+import { FaBoxOpen } from "react-icons/fa";
 
 export default function Service({ subCategories, contentSideImg }) {
   return (
@@ -13,13 +13,15 @@ export default function Service({ subCategories, contentSideImg }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Left Image */}
           <div className="relative w-full h-72 md:h-96 rounded-2xl overflow-hidden shadow-lg bg-gradient-to-r from-orange-500 to-orange-400">
-            <Image
-              src={contentSideImg}
-              alt="Sourcing services"
-              fill
-              className="object-cover"
-              priority
-            />
+            {contentSideImg && (
+              <Image
+                src={contentSideImg}
+                alt="Sourcing services"
+                fill
+                className="object-cover"
+                priority
+              />
+            )}
           </div>
 
           {/* Right Service List */}
