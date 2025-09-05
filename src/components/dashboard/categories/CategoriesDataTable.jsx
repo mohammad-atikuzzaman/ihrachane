@@ -3,6 +3,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import { getData } from "@/utils/axiosPublic";
 import axios from "axios";
+import Link from "next/link";
 
 const CategoriesDataTable = () => {
   const [data, setData] = useState([]);
@@ -61,9 +62,9 @@ const CategoriesDataTable = () => {
                 <div className="text-sm text-gray-900">{item?.name}</div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap flex gap-2 justify-center">
-                <div className="p-2 rounded-full bg-gray-100 w-fit hover:bg-blue-200 ">
+                <Link href={`/dashboard/categories/list/${item._id}`} className="p-2 rounded-full bg-gray-100 w-fit hover:bg-blue-200 ">
                   <CiEdit className="text-sm  text-gray-900" />
-                </div>
+                </Link>
                 <div
                   onClick={() => openModal(item)}
                   className="p-2 rounded-full bg-gray-100 hover:bg-red-200 w-fit "
