@@ -13,7 +13,8 @@ export async function PUT(request, { params }) {
       return NextResponse.json({ success: false, error: 'Client not found' }, { status: 404 });
     }
     
-    return NextResponse.json({ success: true, data: client });
+    return NextResponse.json({ success: true,
+      message: "Client Update Successfully!", data: client });
   } catch (error) {
     return NextResponse.json({ success: false, error: error.message }, { status: 400 });
   }

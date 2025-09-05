@@ -8,7 +8,8 @@ export async function POST(request) {
     await dbConnect();
     const body = await request.json();
     const client = await Client.create(body);
-    return NextResponse.json({ success: true, data: client }, { status: 201 });
+    return NextResponse.json({ success: true,
+      message: "Client Create Successfully!", data: client }, { status: 201 });
   } catch (error) {
     return NextResponse.json(
       { success: false, error: error.message },

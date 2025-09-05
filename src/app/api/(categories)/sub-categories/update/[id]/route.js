@@ -18,7 +18,8 @@ export async function PUT(request, { params }) {
       );
     }
 
-    return NextResponse.json({ success: true, data: category });
+    return NextResponse.json({ success: true,
+      message: "Sub-Category Update Successfully!", data: category });
   } catch (error) {
     return NextResponse.json(
       { success: false, error: error.message },

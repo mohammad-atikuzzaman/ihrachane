@@ -9,7 +9,8 @@ export async function POST(request) {
     const body = await request.json();
     const testimonial = await Testimonial.create(body);
     return NextResponse.json(
-      { success: true, data: testimonial },
+      { success: true,
+          message: "Testimonial Create Successfully!", data: testimonial },
       { status: 201 }
     );
   } catch (error) {
