@@ -25,7 +25,9 @@ const SubWrapper = ({ id }) => {
           details: `${data?.description}`,
         }}
       />
-      <SubService services={data?.subCategoryServices}/>
+      {data?.subCategoryServices?.length  && (
+        <SubService services={data?.subCategoryServices} />
+      )}
     </>
   );
 };
