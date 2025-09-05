@@ -114,9 +114,9 @@ const ClientTable = () => {
                     )}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap flex gap-2 justify-center">
-                    <div className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 w-fit cursor-pointer">
+                    <Link href={`/dashboard/client/${item.id}`} className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 w-fit cursor-pointer">
                       <CiEdit className="text-sm text-gray-900" />
-                    </div>
+                    </Link>
                     <div className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 w-fit cursor-pointer">
                       <AiOutlineDelete className="text-sm text-gray-900" />
                     </div>
