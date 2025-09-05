@@ -21,5 +21,7 @@ const companyDetailsSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.models.CompanyDetails ||
+const CompanyDetails =
+  mongoose.models.CompanyDetails ||
   mongoose.model("CompanyDetails", companyDetailsSchema);
+export default CompanyDetails;

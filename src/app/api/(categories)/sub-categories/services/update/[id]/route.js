@@ -1,19 +1,23 @@
 import dbConnect from "@/lib/mongodb";
-import SubCategory from "@/models/SubCategory";
+import SubCategoryService from "@/models/SubCategoryService";
 import { NextResponse } from "next/server";
 
 export async function PUT(request, { params }) {
   try {
     await dbConnect();
     const body = await request.json();
-    const subCategory = await SubCategory.findByIdAndUpdate(params.id, body, {
-      new: true,
-      runValidators: true,
-    });
+    const subCategoryService = await SubCategoryService.findByIdAndUpdate(
+      params.id,
+      body,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
 
-    if (!subCategory) {
+    if (!subCategoryService) {
       return NextResponse.json(
-        { success: false, error: "Sub-Category not found" },
+        { success: false, error: "Sub-Category Service not found" },
         { status: 404 }
       );
     }
