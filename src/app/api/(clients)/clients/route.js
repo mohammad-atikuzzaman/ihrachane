@@ -8,7 +8,7 @@ import { getPaginatedData } from "@/utils/getPaginatedData";
 import { NextResponse } from "next/server";
 
 // GET all clients
-export async function GET() {
+export async function GET(req) {
   try {
     await dbConnect();
     const { searchParams } = new URL(req.url);
