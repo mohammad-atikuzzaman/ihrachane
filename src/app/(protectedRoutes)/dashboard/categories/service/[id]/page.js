@@ -1,10 +1,10 @@
 import UpdateSubCategoryService from "@/components/dashboard/categories/UpdateSubCategoryService";
 
-
-const EditServicePage = ({ params }) => {
+const EditServicePage = async ({ params }) => {
+  const { id } = await params;
   return (
     <div>
-      <UpdateSubCategoryService categoryId={params.id} />
+      <UpdateSubCategoryService categoryId={id} />
     </div>
   );
 };

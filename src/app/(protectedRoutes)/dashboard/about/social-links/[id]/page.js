@@ -1,10 +1,11 @@
 import UpdateSocialLinks from "@/components/dashboard/social-links/UpdateSocialLinks";
 import React from "react";
 
-const page = ({ params }) => {
+const page = async ({ params }) => {
+  const { id } = await params;
   return (
     <div>
-      <UpdateSocialLinks socialId={params.id} />
+      <UpdateSocialLinks socialId={id} />
     </div>
   );
 };
