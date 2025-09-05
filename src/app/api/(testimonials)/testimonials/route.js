@@ -5,7 +5,7 @@ import { getPaginatedData } from "@/utils/getPaginatedData";
 import { testimonialPopulateFields, testimonialSearchableFields } from "@/constants/testimonial.constant";
 
 // GET all testimonials
-export async function GET() {
+export async function GET(req) {
   try {
     await dbConnect();
     const { searchParams } = new URL(req.url);
