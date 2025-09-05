@@ -10,7 +10,8 @@ export async function POST(request) {
     const { selectedSubCategory } = body;
 
     const subCategory = await SubCategory.findById(selectedSubCategory);
-    if (!category) {
+
+    if (!subCategory) {
       return NextResponse.json(
         { success: false, error: "Category not found" },
         { status: 404 }

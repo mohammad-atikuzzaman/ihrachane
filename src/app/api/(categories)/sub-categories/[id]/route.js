@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export async function GET(request, { params }) {
   try {
     await dbConnect();
-    const subCategory = await SubCategory.findById(params.id).populate();
+    const subCategory = await SubCategory.findById(params.id).populate("subCategoryServices");
 
     if (!subCategory) {
       return NextResponse.json(

@@ -7,7 +7,7 @@ export async function GET(request, { params }) {
     await dbConnect();
     const subCategoryService = await SubCategoryService.findById(
       params.id
-    ).populate();
+    ).populate("selectedSubCategory");
 
     if (!subCategoryService) {
       return NextResponse.json(
