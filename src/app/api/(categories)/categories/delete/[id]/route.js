@@ -1,4 +1,4 @@
-  import dbConnect from "@/lib/mongodb";
+import dbConnect from "@/lib/mongodb";
 import Category from "@/models/Category";
 import { NextResponse } from "next/server";
 
@@ -14,7 +14,11 @@ export async function DELETE(request, { params }) {
       );
     }
 
-    return NextResponse.json({ success: true, data: {} });
+    return NextResponse.json({
+      success: true,
+      message: "Category Delete Successfully!",
+      data: {},
+    });
   } catch (error) {
     return NextResponse.json(
       { success: false, error: error.message },
