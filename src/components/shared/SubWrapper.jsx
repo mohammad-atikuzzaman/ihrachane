@@ -3,27 +3,30 @@
 import { getData } from "@/utils/axiosPublic";
 import { useEffect, useState } from "react";
 import Hero from "./Hero";
+import SubService from "./SubServices";
 
 const SubWrapper = ({ id }) => {
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetchData() {
       const { data } = await getData(`/api/sub-categories/${id}`);
-      console.log(data);
+      setData(data);
     }
     fetchData();
   }, [id]);
+  console.log(data);
   return (
-    <div>
+    <>
       <Hero
-        img={"/asset/1.png"}
+        img={data?.bannerImg}
         info={{
-          span: "Home",
-          title: `This is home page`,
-          details: `This is the details page of home`,
+          span: `${data?.span}`,
+          title: `${data?.title}`,
+          details: `${data?.description}`,
         }}
       />
-    </div>
+      <SubService services={data?.subCategoryServices}/>
+    </>
   );
 };
 
