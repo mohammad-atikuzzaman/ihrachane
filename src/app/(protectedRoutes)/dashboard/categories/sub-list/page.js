@@ -12,7 +12,7 @@ const SubCategoryPageList = () => {
             onClick={() =>
               router.push("/dashboard/categories/sub-list/create-new")
             }
-            className='text-sm bg-[#FF6903] text-white font-semibold px-4 py-2 rounded-lg my-3 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:bg-[#e55b00] active:scale-95'>
+            className='text-sm bg-[#FF6903] text-white font-semibold px-4 py-2 rounded-lg my-3 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:bg-[#e55b00] active:scale-95 cursor-pointer'>
             Add Sub Category
           </button>
         </div>

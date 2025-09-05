@@ -20,9 +20,11 @@ const SubCategoryServicePage = () => {
           <h2 className="text-lg font-semibold text-gray-700">
             Sub Category Service List
           </h2>
-          <Link href={'/dashboard/categories/service/createService'}><button className="bg-orange-600 hover:bg-orange-700 cursor-pointer text-white px-4 py-2 rounded-lg shadow">
-            Add Sub Category
-          </button></Link>
+          <Link href={"/dashboard/categories/service/createService"}>
+            <button className="bg-orange-600 hover:bg-orange-700 cursor-pointer text-white px-4 py-2 rounded-lg shadow cup">
+              Add Sub Category
+            </button>
+          </Link>
         </div>
 
         {/* Table */}
@@ -46,10 +48,13 @@ const SubCategoryServicePage = () => {
                   <td className="px-6 py-4">{index + 1}</td>
                   <td className="px-6 py-4">{item.name}</td>
                   <td className="px-6 py-4 flex gap-3">
-                    <button className="p-2 rounded-full hover:bg-blue-100 text-blue-600 transition">
+                  <Link
+                      href={`/dashboard/categories/service/${item.id}`}
+                      className="p-2 rounded-full hover:bg-blue-100 text-blue-600"
+                    >
                       <FaEdit />
-                    </button>
-                    <button className="p-2 rounded-full hover:bg-red-100 text-red-600 transition">
+                    </Link>
+                    <button className="p-2 rounded-full hover:bg-red-100 text-red-600 ">
                       <FaTrash />
                     </button>
                   </td>
