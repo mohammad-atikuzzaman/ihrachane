@@ -1,19 +1,21 @@
-import React from 'react';
+import React from "react";
 
 const ServiceCard = () => {
   const services = [
     {
       title: "Web Development",
-      description: "Custom websites and web applications built with modern technologies for optimal performance and user experience."
+      description:
+        "Custom websites and web applications built with modern technologies for optimal performance and user experience.",
     },
     {
       title: "UI/UX Design",
-      description: "Beautiful and intuitive interfaces designed with user experience principles to maximize engagement and satisfaction."
-    }
+      description:
+        "Beautiful and intuitive interfaces designed with user experience principles to maximize engagement and satisfaction.",
+    },
   ];
 
   return (
-    <div className="bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="bg-gradient-to-br container mx-auto from-orange-400 via-orange-500 to-orange-600 py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -top-20 -left-20 w-64 h-64 bg-orange-300 rounded-full opacity-20"></div>
@@ -29,11 +31,14 @@ const ServiceCard = () => {
             <div className="h-1 w-4 bg-white rounded-full mr-2 animate-pulse delay-300"></div>
             <div className="h-1 w-8 bg-white rounded-full animate-pulse delay-700"></div>
           </div>
-          
+
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 drop-shadow-lg">
-            Our <span className="text-orange-100 bg-clip-text bg-gradient-to-r from-white to-orange-200">Services</span>
+            Our{" "}
+            <span className="text-orange-100 bg-clip-text bg-gradient-to-r from-white to-orange-200">
+              Services
+            </span>
           </h1>
-          
+
           <p className="text-lg md:text-xl text-orange-100 max-w-2xl mx-auto leading-relaxed drop-shadow">
             Professional solutions tailored to your business needs
           </p>
@@ -49,11 +54,13 @@ const ServiceCard = () => {
               {/* Animated elements */}
               <div className="absolute top-0 right-0 w-40 h-40 -mr-20 -mt-20 bg-orange-500 rounded-full opacity-20 group-hover:opacity-30 transition-opacity duration-700 group-hover:scale-110"></div>
               <div className="absolute bottom-0 left-0 w-32 h-32 -ml-16 -mb-16 bg-orange-400 rounded-full opacity-30 group-hover:opacity-40 transition-opacity duration-700 group-hover:scale-110"></div>
-              
+
               <div className="relative p-8 md:p-10">
                 {/* Icon/Number Container */}
                 <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl mb-6 group-hover:from-orange-600 group-hover:to-orange-700 transition-all duration-500 shadow-lg">
-                  <div className="text-3xl font-bold text-white drop-shadow">{index + 1}</div>
+                  <div className="text-3xl font-bold text-white drop-shadow">
+                    {index + 1}
+                  </div>
                 </div>
 
                 {/* Service Title */}
@@ -98,7 +105,8 @@ const ServiceCard = () => {
               Ready to get started?
             </h2>
             <p className="text-orange-100 text-xl mb-8 max-w-2xl mx-auto drop-shadow">
-              Let us help you transform your business with our professional services
+              Let us help you transform your business with our professional
+              services
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <button className="px-8 py-4 bg-white text-orange-600 font-bold rounded-xl shadow-lg hover:bg-orange-50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-lg">

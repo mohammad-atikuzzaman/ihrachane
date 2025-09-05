@@ -34,7 +34,7 @@ const Form = () => {
   };
 
   return (
-    <section className="bg-gradient-to-br from-orange-50 to-orange-100 py-16 px-4">
+    <section className="bg-gradient-to-br container mx-auto from-orange-100 to-orange-200 py-16 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-12">
