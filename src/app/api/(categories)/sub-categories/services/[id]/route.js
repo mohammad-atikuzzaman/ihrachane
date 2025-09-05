@@ -16,7 +16,11 @@ export async function GET(request, { params }) {
       );
     }
 
-    return NextResponse.json({ success: true, data: subCategoryService });
+    return NextResponse.json({
+      success: true,
+      message: "Sub-Category Service Retrieved Successfully!",
+      data: subCategoryService,
+    });
   } catch (error) {
     return NextResponse.json(
       { success: false, error: error.message },

@@ -1,10 +1,11 @@
 import PartnerUpdate from '@/components/dashboard/partner/PartnerUpdate';
 import React from 'react';
 
-const page = ({ params }) => {
+const page = async ({ params }) => {
+    const {id} = await params 
     return (
         <div>
-            <PartnerUpdate partnerId={params.id} />
+            <PartnerUpdate partnerId={id} />
         </div>
     );
 };

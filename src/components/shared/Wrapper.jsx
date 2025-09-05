@@ -26,7 +26,13 @@ const Wrapper = ({ slug }) => {
           details: data?.mainBannerDescription,
         }}
       />
-      <Service subCategories={data?.subCategories} contentSideImg={data?.contentSideImg} slug={slug} />
+      {data?.subCategories?.length && (
+        <Service
+          subCategories={data?.subCategories}
+          contentSideImg={data?.contentSideImg}
+          slug={slug}
+        />
+      )}
     </>
   );
 };
