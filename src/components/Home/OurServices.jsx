@@ -1,18 +1,10 @@
-import React from "react";
+import dbConnect from "@/lib/mongodb";
+import Service from "@/models/Service";
+import Link from "next/link";
 
-const ServiceCard = () => {
-  const services = [
-    {
-      title: "Web Development",
-      description:
-        "Custom websites and web applications built with modern technologies for optimal performance and user experience.",
-    },
-    {
-      title: "UI/UX Design",
-      description:
-        "Beautiful and intuitive interfaces designed with user experience principles to maximize engagement and satisfaction.",
-    },
-  ];
+const ServiceCard = async () => {
+  await dbConnect();
+  const services = await Service.find();
 
   return (
     <div className="bg-gradient-to-br container mx-auto from-orange-400 via-orange-500 to-orange-600 py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden rounded-2xl">
@@ -46,7 +38,7 @@ const ServiceCard = () => {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {services.map((service, index) => (
+          {services?.map((service, index) => (
             <div
               key={index}
               className="group relative bg-white rounded-3xl shadow-2xl hover:shadow-2xl transition-all duration-500 overflow-hidden border-2 border-orange-100 hover:border-orange-200 transform hover:-translate-y-3"
@@ -65,12 +57,12 @@ const ServiceCard = () => {
 
                 {/* Service Title */}
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-500">
-                  {service.title}
+                  {service?.title}
                 </h3>
 
                 {/* Description */}
                 <p className="text-gray-700 leading-relaxed mb-8 text-lg">
-                  {service.description}
+                  {service?.description}
                 </p>
 
                 {/* CTA Button */}
@@ -109,12 +101,9 @@ const ServiceCard = () => {
               services
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <button className="px-8 py-4 bg-white text-orange-600 font-bold rounded-xl shadow-lg hover:bg-orange-50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-lg">
+              <Link href="#contact"  className="px-8 py-4 bg-white text-orange-600 font-bold rounded-xl shadow-lg hover:bg-orange-50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-lg">
                 Contact us
-              </button>
-              <button className="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-orange-600 transition-all duration-300 transform hover:-translate-y-1 text-lg">
-                View all services
-              </button>
+              </Link>
             </div>
           </div>
         </div>
