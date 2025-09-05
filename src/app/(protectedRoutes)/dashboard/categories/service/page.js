@@ -48,9 +48,12 @@ const SubCategoryServicePage = () => {
                   <td className="px-6 py-4">{index + 1}</td>
                   <td className="px-6 py-4">{item.name}</td>
                   <td className="px-6 py-4 flex gap-3">
-                    <button className="p-2 rounded-full hover:bg-blue-100 text-blue-600 ">
+                  <Link
+                      href={`/dashboard/categories/service/${item.id}`}
+                      className="p-2 rounded-full hover:bg-blue-100 text-blue-600"
+                    >
                       <FaEdit />
-                    </button>
+                    </Link>
                     <button className="p-2 rounded-full hover:bg-red-100 text-red-600 ">
                       <FaTrash />
                     </button>

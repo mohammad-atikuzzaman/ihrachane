@@ -1,12 +1,12 @@
+import UpdateSubCategoryService from "@/components/dashboard/categories/UpdateSubCategoryService";
 
-import React from "react";
 
-const page = () => {
+const EditServicePage = ({ params }) => {
   return (
     <div>
-      
+      <UpdateSubCategoryService categoryId={params.id} />
     </div>
   );
 };
 
-export default page;
+export default EditServicePage;
