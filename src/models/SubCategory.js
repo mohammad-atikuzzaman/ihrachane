@@ -11,6 +11,12 @@ const subCategorySchema = new Schema(
     },
     bannerImg: { type: String },
     description: { type: String },
+    subCategoryServices: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "SubCategoryService",
+      },
+    ],
   },
   { timestamps: true }
 );
