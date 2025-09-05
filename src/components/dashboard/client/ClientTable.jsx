@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { CiEdit } from "react-icons/ci";
 import { AiOutlineDelete } from "react-icons/ai";
+import Link from "next/link";
 import Image from "next/image";
 
 const ClientTable = () => {

@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { AiOutlineDelete } from "react-icons/ai";
+import { CiEdit } from "react-icons/ci";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { getData } from "@/utils/axiosPublic"; // তোমার axios wrapper
 
@@ -87,12 +89,13 @@ const SubCategoryServicePage = () => {
                   <td className="px-6 py-4 flex gap-3">
                     <Link
                       href={`/dashboard/categories/service/${item?._id}`}
-                      className="p-2 rounded-full hover:bg-blue-100 text-blue-600"
+                      className="p-2 rounded-full bg-gray-100 w-fit hover:bg-blue-200"
+                      
                     >
-                      <FaEdit />
+                      <CiEdit className='text-sm text-gray-900' />
                     </Link>
-                    <button className="p-2 rounded-full hover:bg-red-100 text-red-600">
-                      <FaTrash />
+                    <button className="p-2 rounded-full bg-gray-100 w-fit hover:bg-blue-200">
+                    <AiOutlineDelete className='text-sm text-gray-900'  />
                     </button>
                   </td>
                 </tr>
