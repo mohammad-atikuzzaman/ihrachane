@@ -1,7 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaBoxOpen } from "react-icons/fa";
 
-export default function Service({ subCategories, contentSideImg }) {
+export default function Service({ subCategories, contentSideImg , slug}) {
   return (
     <section className="py-16 px-6 md:px-12 bg-white">
       <div className="max-w-6xl mx-auto">
@@ -28,7 +29,7 @@ export default function Service({ subCategories, contentSideImg }) {
           <div className="flex flex-col gap-8 cursor-pointer">
             {/* Card 1 */}
             {subCategories?.map((subCategory, index) => (
-              <div
+              <Link href={`/home/${slug}/${subCategory?._id}`}
                 key={subCategory?._id}
                 className="bg-orange-50 hover:bg-gray-50 transition rounded-2xl shadow-md p-6 flex items-start gap-5"
               >
@@ -43,7 +44,7 @@ export default function Service({ subCategories, contentSideImg }) {
                     {subCategory?.description}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
