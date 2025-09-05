@@ -13,12 +13,12 @@ const ServiceCard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-20 -left-20 w-64 h-64 bg-orange-300 rounded-full opacity-20 animate-pulse"></div>
-        <div className="absolute top-1/4 -right-20 w-80 h-80 bg-white rounded-full opacity-10 animate-bounce delay-1000"></div>
-        <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-orange-200 rounded-full opacity-15 animate-ping delay-2000"></div>
+        <div className="absolute -top-20 -left-20 w-64 h-64 bg-orange-300 rounded-full opacity-20"></div>
+        <div className="absolute top-1/4 -right-20 w-80 h-80 bg-white rounded-full opacity-10 delay-1000"></div>
+        <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-orange-200 rounded-full opacity-15 delay-2000"></div>
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
