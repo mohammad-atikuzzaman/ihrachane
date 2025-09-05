@@ -8,7 +8,7 @@ import {
 } from "@/constants/partner.constant";
 
 // GET all partners
-export async function GET() {
+export async function GET(req) {
   try {
     await dbConnect();
     const { searchParams } = new URL(req.url);
