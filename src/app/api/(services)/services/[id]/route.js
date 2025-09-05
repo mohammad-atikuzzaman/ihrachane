@@ -6,7 +6,8 @@ import { NextResponse } from "next/server";
 export async function GET(request, { params }) {
   try {
     await dbConnect();
-    const service = await Service.findById(params.id);
+    const {id} = await params;
+    const service = await Service.findById(id);
 
     if (!service) {
       return NextResponse.json(
@@ -15,7 +16,11 @@ export async function GET(request, { params }) {
       );
     }
 
-    return NextResponse.json({ success: true, data: service });
+    return NextResponse.json({
+      success: true,
+      message: "Service Retrieved Successfully!",
+      data: service,
+    });
   } catch (error) {
     return NextResponse.json(
       { success: false, error: error.message },

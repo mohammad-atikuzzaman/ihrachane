@@ -7,7 +7,8 @@ export async function GET() {
   try {
     await dbConnect();
     const partners = await Partner.find({});
-    return NextResponse.json({ success: true, data: partners });
+    return NextResponse.json({ success: true, 
+      message: "Partners Retrieved Successfully!", data: partners });
   } catch (error) {
     return NextResponse.json(
       { success: false, error: error.message },

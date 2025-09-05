@@ -6,7 +6,11 @@ export async function GET() {
   try {
     await dbConnect();
     const categories = await Category.find();
-    return NextResponse.json({ success: true, data: categories });
+    return NextResponse.json({
+      success: true,
+      message: "All Category Data Retrieved Successfully!",
+      data: categories,
+    });
   } catch (error) {
     return NextResponse.json(
       { success: false, error: error.message },

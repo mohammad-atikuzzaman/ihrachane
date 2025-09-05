@@ -14,7 +14,8 @@ export async function DELETE(request, { params }) {
       );
     }
 
-    return NextResponse.json({ success: true, data: {} });
+    return NextResponse.json({ success: true,
+      message: "Sub-Category Service Delete Successfully!", data: {} });
   } catch (error) {
     return NextResponse.json(
       { success: false, error: error.message },

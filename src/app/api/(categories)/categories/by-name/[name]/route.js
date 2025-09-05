@@ -17,7 +17,11 @@ export async function GET(request, { params }) {
 
     if (!category) {
       return NextResponse.json(
-        { success: false, error: "Category not found" },
+        {
+          success: false,
+          message: "Category Retrieved Successfully!",
+          error: "Category not found",
+        },
         { status: 404 }
       );
     }

@@ -7,7 +7,8 @@ export async function GET() {
   try {
     await dbConnect();
     const testimonials = await Testimonial.find({});
-    return NextResponse.json({ success: true, data: testimonials });
+    return NextResponse.json({ success: true, 
+          message: "Testimonials Retrieved Successfully!", data: testimonials });
   } catch (error) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }

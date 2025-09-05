@@ -8,7 +8,8 @@ export async function GET() {
     const subCategoryServices = await SubCategoryService.find({}).populate(
       "selectedSubCategory"
     );
-    return NextResponse.json({ success: true, data: subCategoryServices });
+    return NextResponse.json({ success: true,
+      message: "Sub-Category Services Retrieved Successfully!", data: subCategoryServices });
   } catch (error) {
     return NextResponse.json(
       { success: false, error: error.message },
