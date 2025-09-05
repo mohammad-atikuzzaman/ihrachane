@@ -5,6 +5,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import { getData } from "@/utils/axiosPublic";
 import axios from "axios";
+import Link from "next/link";
 
 const ServiceTable = () => {
   const [data, setData] = useState([]);
@@ -63,9 +64,12 @@ const ServiceTable = () => {
                 <div className="text-sm text-gray-900">{item?.title}</div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap flex gap-2 justify-center">
-                <div className="p-2 rounded-full bg-gray-100 hover:bg-blue-300 w-fit ">
+              <Link
+                  href={`/dashboard/services/${item._id}`}
+                  className="p-2 rounded-full bg-gray-100 hover:bg-blue-300 w-fit"
+                >
                   <CiEdit className="text-sm text-gray-900" />
-                </div>
+                </Link>
                 <div
                   onClick={() => openModal(item)}
                   className="p-2 rounded-full bg-gray-100 hover:bg-red-300 w-fit "
