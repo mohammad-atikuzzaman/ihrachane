@@ -5,7 +5,10 @@ import { NextResponse } from "next/server";
 export async function GET(request, { params }) {
   try {
     await dbConnect();
-    const subCategory = await SubCategory.findById(params.id).populate("subCategoryServices");
+    const { id } = await params;
+    const subCategory = await SubCategory.findById(id).populate(
+      "subCategoryServices"
+    );
 
     if (!subCategory) {
       return NextResponse.json(
