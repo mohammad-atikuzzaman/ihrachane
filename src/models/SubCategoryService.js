@@ -18,4 +18,6 @@ const subCategoryServiceSchema = new mongoose.Schema({
   },
 }, { timestamps: true });
 
-export default mongoose.models.SubCategoryService || mongoose.model("SubCategoryService", subCategoryServiceSchema);
+const SubCategoryService =  mongoose.models.SubCategoryService || mongoose.model("SubCategoryService", subCategoryServiceSchema);
+
+export default SubCategoryService;

@@ -21,5 +21,5 @@ const contactFormSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.models.ContactForm ||
-  mongoose.model("ContactForm", contactFormSchema);
+const ContactForm = mongoose.models.ContactForm || mongoose.model("ContactForm", contactFormSchema);
+export default ContactForm;

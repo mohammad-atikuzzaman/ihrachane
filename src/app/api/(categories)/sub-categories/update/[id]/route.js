@@ -11,7 +11,7 @@ export async function PUT(request, { params }) {
       runValidators: true,
     });
 
-    if (!category) {
+    if (!subCategory) {
       return NextResponse.json(
         { success: false, error: "Sub-Category not found" },
         { status: 404 }

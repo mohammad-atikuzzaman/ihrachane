@@ -1,5 +1,6 @@
 import { CiEdit } from "react-icons/ci";
 import { AiOutlineDelete } from "react-icons/ai";
+import Link from "next/link";
 
 const SocialLinksTable = () => {
   const data = [
@@ -34,11 +35,14 @@ const SocialLinksTable = () => {
                 <div className='text-sm text-gray-900'>{item.title}</div>
               </td>
               <td className='px-6 py-4 whitespace-nowrap flex gap-2 justify-center'>
-                <div className='p-2 rounded-full bg-gray-100 hover:bg-gray-200 w-fit hover:p-2.5'>
-                  <CiEdit className='text-sm hover:text-lg text-gray-900' />
-                </div>
-                <div className='p-2 rounded-full bg-gray-100 hover:bg-gray-200 w-fit hover:p-2.5'>
-                  <AiOutlineDelete className='text-sm hover:text-lg text-gray-900' />
+              <Link
+                  href={`/dashboard/about/social-links/${item.id}`}
+                  className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 w-fit"
+                >
+                  <CiEdit className="text-sm cursor-pointer text-gray-900" />
+                </Link>
+                <div className='p-2 rounded-full bg-gray-100 hover:bg-gray-200 w-fit '>
+                  <AiOutlineDelete className='text-sm cursor-pointer text-gray-900' />
                 </div>
               </td>
             </tr>

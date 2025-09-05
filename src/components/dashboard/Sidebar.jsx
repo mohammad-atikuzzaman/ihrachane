@@ -70,7 +70,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             {menuItems.map((item) => (
               <li key={item.name} className="px-4">
                 {item.isHeader ? (
-                  <div className="text-orange-100 text-xs uppercase tracking-wider mt-6 mb-2 px-2">
+                  <div className="text-orange-100 text-xs uppercase  tracking-wider mt-6 mb-2 px-2">
                     {item.name}
                   </div>
                 ) : item.hasSubmenu ? (
