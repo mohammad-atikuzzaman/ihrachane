@@ -55,7 +55,11 @@ export async function POST(request) {
     });
 
     return NextResponse.json(
-      { success: true, data: category },
+      {
+        success: true,
+        message: "Category Created Successfully!",
+        data: category,
+      },
       { status: 201 }
     );
   } catch (error) {

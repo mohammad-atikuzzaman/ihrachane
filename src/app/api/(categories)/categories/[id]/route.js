@@ -6,8 +6,9 @@ import { NextResponse } from "next/server";
 export async function GET(request, { params }) {
   try {
     await dbConnect();
-    const category = await Category.findById(params.id).populate(
-      "SubCategories.SubCategoryServices.Sub_category_select"
+    const {id} = await params;
+    const category = await Category.findById(id).populate(
+      "subCategories"
     );
 
     if (!category) {
@@ -17,7 +18,11 @@ export async function GET(request, { params }) {
       );
     }
 
-    return NextResponse.json({ success: true, data: category });
+    return NextResponse.json({
+      success: true,
+      message: "Category Retrieved Successfully!",
+      data: category,
+    });
   } catch (error) {
     return NextResponse.json(
       { success: false, error: error.message },

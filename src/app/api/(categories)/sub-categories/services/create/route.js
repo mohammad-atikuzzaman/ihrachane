@@ -28,7 +28,8 @@ export async function POST(request) {
     await subCategory.save();
 
     return NextResponse.json(
-      { success: true, data: subCategory },
+      { success: true,
+      message: "Sub-Category Service Created Successfully!", data: subCategory },
       { status: 201 }
     );
   } catch (error) {
