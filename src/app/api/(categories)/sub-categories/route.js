@@ -1,7 +1,7 @@
 import {
   subCategoryPopulateFields,
   subCategorySearchableFields,
-} from "@/constants/SubCategory.Constant";
+} from "@/constants/subCategory.constant";
 import dbConnect from "@/lib/mongodb";
 import SubCategory from "@/models/SubCategory";
 import { getPaginatedData } from "@/utils/getPaginatedData";
