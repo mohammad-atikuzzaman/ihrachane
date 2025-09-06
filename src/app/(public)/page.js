@@ -11,7 +11,7 @@ export default async function Home() {
   return (
     <div className="">
       <Hero
-        img={"/asset/1.png"}
+        img={"https://i.ibb.co.com/6JX5JVzG/1.png"}
         info={{
           span: "Home",
           title: `This is home page`,
