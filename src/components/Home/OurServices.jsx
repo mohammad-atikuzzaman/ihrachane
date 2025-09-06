@@ -7,7 +7,7 @@ const ServiceCard = async () => {
   const services = await Service.find();
 
   return (
-    <div className="bg-gradient-to-br container mx-auto from-orange-400 via-orange-500 to-orange-600 py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden rounded-2xl">
+    <div id="services" className="bg-gradient-to-br container mx-auto from-orange-400 via-orange-500 to-orange-600 py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden rounded-2xl">
       {/* Animated background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -top-20 -left-20 w-64 h-64 bg-orange-300 rounded-full opacity-20"></div>
