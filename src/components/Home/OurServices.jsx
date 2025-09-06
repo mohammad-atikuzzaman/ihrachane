@@ -15,7 +15,7 @@ const ServiceCard = async () => {
         <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-orange-200 rounded-full opacity-15 delay-2000"></div>
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="container mx-auto relative z-10">
         {/* Header Section */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center mb-6 bg-white/20 p-2 rounded-full">
